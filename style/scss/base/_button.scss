@@ -1,0 +1,296 @@
+// 按鈕 button
+.btn {
+	@include border(transparent);
+	display: inline-block;
+	padding: 13px 10px;
+	font-size: 16px;
+	line-height: 1;
+	text-decoration: none;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	touch-action: manipulation;
+	cursor: pointer;
+	user-select: none;
+	background-image: none;
+	transition: all .1s ease-in-out;
+	@include radius(20px);
+	font-weight: bold;
+	@include breakpoint(lg) {
+		transition:
+		.35s background $cubic-default,
+		.35s border-color $cubic-default;
+	}
+
+	&:focus, &:active {
+		outline-offset: -2px;
+		text-decoration: none;
+
+	}
+	&:active {
+		background-image: none;
+		outline: 0;
+	}
+	&:hover {
+		@include breakpoint(lg) {
+			// color: #333;
+			text-decoration: none;
+		}
+	}
+
+	// 隨父層大小
+	&--block {
+		width: 100%;
+	}
+	// 非全寬
+	&--inline {
+		width: auto;
+		display: inline-block;
+	}
+
+
+	// 按鈕-一般
+	&--default {
+		@include btn-colors(default);
+		@include btn-disabled;
+	}
+
+	&--primary {
+		@include btn-colors(primary);
+		@include btn-disabled;
+	}
+
+	// 按鈕-第三
+	&--third {
+		@include btn-colors(third);
+		@include btn-disabled;
+		font-weight: normal;
+	}
+	// 按鈕-第三
+	&--fourth {
+		@include btn-colors(fourth);
+	}
+
+	// 按鈕-share
+	&--share {
+		font-size: 14px;
+		padding: 4px 4px 2px 2px;
+		letter-spacing: 0;
+		@include btn-colors(share);
+	}
+	&--transparent{
+		// @include btn-colors(transparent);
+		color: $white;
+		background: transparent;
+		border-color: $white;
+		&:hover{
+			@include breakpoint(lg) {
+				color: $white;
+				background: rgba(255, 255, 255, .2);
+				border-color: $white;
+			}
+		}
+	}
+
+
+	&--facebook {
+		color: $white;
+		background: $facebook;
+		border-color: $facebook;
+
+		@include active-hover {
+			color: $white;
+			background: $facebook_hover;
+			border-color: $facebook_hover;
+		}
+	}
+	&--line {
+		color: $white;
+		background: $line;
+		border-color: $line;
+
+		@include active-hover {
+			color: $white;
+			background: $line_hover;
+			border-color: $line_hover;
+		}
+	}
+	&--google {
+		color: $white;
+		background: $google;
+		border-color: $google;
+		@include active-hover {
+			color: $white;
+			background: $google_hover;
+			border-color: $google_hover;
+		}
+	}
+
+	// 按鈕裡的icon
+	&__icon {
+		margin: 0 3px;
+		font-size: 20px;
+		margin-top: -5px;
+	}
+}
+
+
+// 按鈕大小
+.btn-xs {
+	font-size: 14px;
+	padding: 8px 6px 6px;
+	max-height: 30px;
+	min-width: 90px;
+	font-weight: normal;
+	@include breakpoint(lg) {
+	}
+}
+.btn-sm {
+	max-height: 44px;
+}
+.btn-md {
+	font-size: 16px;
+	max-height: 48px;
+	// min-width: 150px;
+	max-width: 150px;
+	// width: 100%;
+	@include breakpoint(md) {
+	}
+}
+.btn-lg {
+	font-size: 16px;
+	width: 100%;
+	@include breakpoint(md) {
+	}
+	@include breakpoint(lg) {
+		font-size: 24px;
+		padding: 15px 10px 15px;
+	}
+}
+
+
+
+
+// 按鈕-icon類型
+.btn-icon {
+	display: block;
+	color: #999;
+	&:active{
+		color: #222;
+	}
+}
+
+.icon-btn__icon{
+	font-size: 16px;
+}
+
+// 單顆按鈕區
+.btnbox {
+	text-align: center;
+
+	&--1 {
+		display: flex;
+		justify-content: center;
+		max-width: 150px;
+		margin: 0 auto;
+	}
+}
+
+// 多顆按鈕區
+.btnboxs {
+
+	&--2 {
+		display: flex;
+		justify-content: space-between;
+		max-width: 345px;
+		margin: 0 auto;
+	}
+	&--2-full {
+		max-width: none;
+	}
+
+	// .btn {
+	// 	margin-bottom: 20px;
+	// }
+
+	&--3 {
+		@include breakpoint(md) {
+			display: flex;
+			justify-content: center;
+		}
+		.btn-md {
+			@include breakpoint(md) {
+				width: calc(33.333% - 14px);
+				max-width: 170px;
+				margin-left: 5px;
+				margin-right: 5px;
+			}
+
+		}
+		.btn-lg {
+			@include breakpoint(md) {
+				width: calc(33.333% - 14px);
+				max-width: 260px;
+				margin-left: 5px;
+				margin-right: 5px;
+			}
+		}
+	}
+}
+
+.btnboxs--2 .btn{
+	width: calc(50% - 5px);
+	@include breakpoint(lg) {
+		width: calc(50% - 7px);
+	}
+}
+
+
+
+// ------------------------------ 收藏 ------------------------------
+// 產品收藏
+.btn-like {
+	display: block;
+	width: 30px;
+	height: 30px;
+	text-decoration: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	&__icon {
+		font-size: 20px;
+		transition: .5s ease;
+		color: #888;
+		display: inline-block;
+
+		// 收藏開啟
+		.btn-like--active & {
+			animation: like .15s;
+		}
+
+		.btn-like:hover & {
+			@include breakpoint(lg) {
+				color: $secondary;
+			}
+		}
+
+		&::before {
+			.btn-like--active & {
+				content: '\e92a';
+				color: $text-primary;
+			}
+			.btn-like:hover & {
+				@include breakpoint(lg) {
+					content: '\e92a';
+					color: $secondary;
+				}
+			}
+		}
+	}
+}
+
+@keyframes like {
+	50% {
+		transform: scale(1.15);
+	}
+}

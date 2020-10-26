@@ -1,0 +1,97 @@
+body {
+	&.header-fixed{
+		overflow: hidden;
+	}
+	&.scroll-fixed{
+		overflow: hidden;
+	}
+	// 頁面未載入完成
+	&.preload {
+		 // 禁用動畫過度
+		 * {
+			 -webkit-transition: none !important;
+			 -moz-transition: none !important;
+			 -ms-transition: none !important;
+			 -o-transition: none !important;
+		 }
+	 }
+}
+
+// wrap 最外框
+.wrap {
+	position: relative;
+	overflow: hidden;
+	font-size: 16px;
+	@include breakpoint(lg) {
+		min-height: 100%;
+	}
+}
+
+// 頁面寬度
+.wrap__inner {
+	margin: 0 auto;
+	padding: 0 15px;
+	max-width: 1140px;
+	position: relative;
+	@include breakpoint(md) {
+		@include breakpoint(xl, max) {
+			max-width: 960px;
+		}
+	}
+	@include breakpoint(md) {
+		// padding: 0 20px;
+	}
+	@include breakpoint(xl) {
+		padding: 0 0;
+	}
+	&--padding-sm {
+		@include breakpoint(md) {
+			padding: 0 40px;
+		}
+	}
+	&--no-padding {
+		padding: 0;
+	}
+	&--768{
+		max-width: 768px;
+		@include breakpoint(md) {
+			padding: 0 15px;
+		}
+	}
+	&--1000{
+		max-width: 1000px;
+		@include breakpoint(lg) {
+			padding: 0;
+		}
+	}
+	&--full{
+		max-width: 100%;
+	}
+
+	&::after {
+		@include breakpoint(lg) {
+			content: " ";
+			display: block;
+			clear: both;
+			line-height: 0;
+			height: 0;
+			visibility: hidden;
+		}
+	}
+}
+
+// content
+.content {
+	min-height: 50vh;
+	margin: 0 auto;
+	padding: 20px 0;
+	@include breakpoint(lg) {
+		min-height: initial;
+		padding: 20px 0 40px;
+	}
+	&::before{
+		content: " ";
+		display: block;
+		height: 45px;
+	}
+}

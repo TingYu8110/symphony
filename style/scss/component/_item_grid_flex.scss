@@ -1,0 +1,190 @@
+// 產品分欄設計
+.grid {
+	$gap: 8px;
+	$gap-sm: 8px;
+	$gap-md: 10px;
+	$gap-lg: 10px;
+	$gap-xl: 10px;
+
+	display: flex;
+	flex-wrap: wrap;
+	// 寬度
+	&__item {
+		flex: 0 0 auto;
+		.grid-xs-1 & {
+			width: 100%;
+		}
+		.grid-xs-2 & {
+			width: calc(50% - (#{$gap} * 2));
+		}
+		.grid-xs-3 & {
+			width: calc(33.333% - (#{$gap} * 2));
+		}
+		.grid-sm-2 & {
+			@include breakpoint(sm) {
+				width: calc(50% - (#{$gap-sm} * 2));
+			}
+		}
+		.grid-sm-3 & {
+			@include breakpoint(sm) {
+				width: calc(33.333% - (#{$gap-sm} * 2));
+			}
+		}
+		.grid-sm-4 & {
+			@include breakpoint(sm) {
+				width: calc(25% - (#{$gap-sm} * 2));
+			}
+		}
+		.grid-md-2 & {
+			@include breakpoint(md) {
+				width: calc(50% - (#{$gap-md} * 2));
+			}
+		}
+		.grid-md-3 & {
+			@include breakpoint(md) {
+				width: calc(33.333% - (#{$gap-md} * 2));
+			}
+		}
+		.grid-md-4 & {
+			@include breakpoint(md) {
+				width: calc(25% - (#{$gap-md} * 2));
+			}
+		}
+		.grid-md-5 & {
+			@include breakpoint(md) {
+				width: calc(20% - (#{$gap-md} * 2));
+			}
+		}
+		.grid-lg-2 & {
+			@include breakpoint(lg) {
+				width: calc(50% - (#{$gap-lg} * 2));
+			}
+		}
+		.grid-lg-3 & {
+			@include breakpoint(lg) {
+				width: calc(33.333% - (#{$gap-lg} * 2));
+			}
+		}
+		.grid-lg-4 & {
+			@include breakpoint(lg) {
+				width: calc(25% - (#{$gap-lg} * 2));
+			}
+		}
+		.grid-lg-5 & {
+			@include breakpoint(lg) {
+				width: calc(20% - (#{$gap-lg} * 2));
+			}
+		}
+		.grid-lg-6 & {
+			@include breakpoint(lg) {
+				width: calc(16.667% - (#{$gap-lg} * 2));
+			}
+		}
+		.grid-xl-2 & {
+			@include breakpoint(xl) {
+				width: calc(50% - (#{$gap-xl} * 2));
+			}
+		}
+		.grid-xl-3 & {
+			@include breakpoint(xl) {
+				width: calc(33.333% - (#{$gap-xl} * 2));
+			}
+		}
+		.grid-xl-4 & {
+			@include breakpoint(xl) {
+				width: calc(25% - (#{$gap-xl} * 2));
+			}
+		}
+		.grid-xl-5 & {
+			@include breakpoint(xl) {
+				width: calc(20% - (#{$gap-xl} * 2));
+			}
+		}
+		.grid-xl-6 & {
+			@include breakpoint(xl) {
+				width: calc(16.667% - (#{$gap-xl} * 2));
+			}
+		}
+	}
+	
+	&-xs-2,
+	&-xs-3 {
+		margin: -$gap;
+		.grid__item {
+			margin: $gap;
+		}
+	}
+	
+	&-sm-2,
+	&-sm-3,
+	&-sm-4 {
+		@include breakpoint(sm) {
+			margin: -$gap-sm;
+		}
+		.grid__item {
+			@include breakpoint(sm) {
+				margin: $gap-sm;
+			}
+		}
+	}
+	
+	&-md-2,
+	&-md-3,
+	&-md-4,
+	&-md-5 {
+		@include breakpoint(md) {
+			margin: -$gap-md;
+		}
+		@include breakpoint(lg) {
+			margin: -$gap-lg;
+		}
+	
+		.grid__item {
+			@include breakpoint(md) {
+				margin: $gap-md;
+			}
+			@include breakpoint(lg) {
+				margin: $gap-lg;
+			}
+		}
+	}
+	
+	&-lg-2,
+	&-lg-3,
+	&-lg-4,
+	&-lg-5,
+	&-lg-6 {
+		@include breakpoint(lg) {
+			margin: -$gap-lg;
+		}
+		.grid__item {
+			@include breakpoint(lg) {
+				margin: $gap-lg;
+			}
+		}
+	}
+	&-lg-1 {
+		@include breakpoint(lg) {
+			margin: (-$gap-lg) 0;
+		}
+		.grid__item {
+			@include breakpoint(lg) {
+				margin: $gap-lg;
+			}
+		}
+	}
+	&-xl-2,
+	&-xl-3,
+	&-xl-4,
+	&-xl-5,
+	&-xl-6 {
+		@include breakpoint(xl) {
+			margin: 0 (-$gap-xl);
+		}
+		.grid__item {
+			@include breakpoint(xl) {
+				margin: $gap-xl;
+			}
+		}
+	}
+}

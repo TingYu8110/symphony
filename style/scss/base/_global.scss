@@ -1,0 +1,213 @@
+// 基本樣式
+
+html *{
+	// outline: 1px solid #18f9f6;
+}
+body {
+	content: "xs";
+	@include breakpoint(md) {
+		content: "s";
+	}
+	@include breakpoint(lg) {
+		content: "m";
+	}
+	@include breakpoint(xl) {
+		content: "l";
+	}
+	@include breakpoint(xxl) {
+		content: 'xl';
+	}
+}
+
+// 反白
+::-moz-selection {
+	color: $white;
+	background: $orange;
+}
+::selection {
+	color: $white;
+	background: $orange;
+}
+
+
+// 元件樣式
+
+// 隱藏 
+// ------------------------------------------------------------
+.hide {
+	@include media-all {
+		display: none;
+	}
+}
+.block {
+	@include media-all {
+		display: block;
+	}
+}
+.hide-scrollbar::-webkit-scrollbar {
+	display: none;
+}
+.clearfix:after{
+	clear: both;
+	content: " ";
+	display: block;
+	height: 0;
+	line-height: 0;
+}
+// 網址
+.link-break{
+	word-break: break-all;
+}
+
+// 裝飾 
+// ------------------------------------------------------------
+.border {
+	@include border;
+}
+.bg-gray {
+	background: $bg-light;
+}
+
+
+// 表格 
+// ------------------------------------------------------------
+
+// 原價
+.price-sell{
+	color: $text-dark;
+	font-size: 12px;
+	margin-bottom: 5px;
+}
+// 原價
+.price-offer{
+	color: $secondary;
+	margin-bottom: 5px;
+}
+// 中文
+.price-cht{
+	margin-right: 5px;
+}
+// 數值
+.price-num{
+	display: inline-block;
+	
+	&::before{
+		content: "NT$";
+		display: inline;
+		margin-right: .3125em;
+	}
+}
+
+.price-num-simple::before{
+	content: "$";
+	display: inline;
+	margin-right: .15em;
+}
+// 原價
+.price-sell-num{
+	// text-decoration: line-through;
+}
+// 積分
+.integral{
+	color: $text-primary;
+	margin-bottom: 5px;
+}
+
+// 中文
+.integral-cht{
+	margin-right: 3px;
+	font-size: 12px;
+}
+// 中文
+.integral-num{
+	font-size: 16px;
+	font-weight: bold;
+}
+// 價格區間
+.price-range{
+	font-size: 16px;
+	&__pre-text{
+		color: $text-dark;
+		font-weight: bold;
+	}
+	&__num{
+		&::before{
+			content: "$";
+			display: inline;
+			margin-right: .3125em;
+		}
+	}
+	&__low{
+
+	}
+	&__high{
+
+	}
+	
+
+}
+
+// 手機認證
+.phone-verify {
+	position: relative;
+	display: inline-block;
+	font-size: 0;
+	vertical-align: middle;
+	color: $text-default;
+	width: 26px;
+	margin: -4px 0;
+
+	&::before, &::after {
+		font-family: 'icomoon';
+	}
+
+	&::before {
+		content: "\e912";
+		font-size: 22px;
+		color: $text-light;
+	}
+	&::after {
+		content: "\e919";
+		// background: radial-gradient($white 40%, rgba(255,255,255,0) 41%);
+		// border-radius: 50%;
+		color: $text-light;
+		position: absolute;
+		right: -1px;
+		top: -1px;
+		font-size: 16px;
+	}
+	&--success::after {
+		content: "\e91a";
+		color: $success;
+	}
+}
+
+// 會員註冊&資料完成 文字區
+.info-finish {
+	display: none;
+	&--show {
+		display: block;
+	}
+}
+
+
+.hover-mask {
+	position: relative;
+	&::before {
+		content: '';
+		pointer-events: none;
+		position: absolute;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		background: #000;
+		transition: opacity .3s;
+		opacity: 0;
+		z-index: 1;
+	}
+	&:hover::before {
+		opacity: .06;
+	}
+
+}

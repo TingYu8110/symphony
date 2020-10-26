@@ -1,0 +1,316 @@
+/* @charset "UTF-8"; */
+
+:root {
+	/* 自行設定 */
+	--f-offset: 30px; /* 偏移量 */
+	--f-time: 1s; /* transition duration */
+}
+
+.js-animate--text span.js-animate__item{
+	display: inline-block;
+}
+
+
+/* 漸入 FadeIn
+==================================== */
+.js-animate--fadein {
+	opacity: 0;
+}
+.js-animate--fadein-up {
+	opacity: 0;
+	transform: translate(0, -30px);
+	/* transform: translate(0, calc( var(--f-offset) * -1)); */
+}
+.js-animate--fadein-down {
+	opacity: 0;
+	transform: translate(0, 30px);
+	/* transform: translate(0, var(--f-offset)); */
+}
+.js-animate--fadein-left {
+	opacity: 0;
+	transform: translate(-30px, 0);
+	/* transform: translate(calc( var(--f-offset) * -1), 0); */
+}
+.js-animate--fadein-right {
+	opacity: 0;
+	transform: translate(30px, 0);
+	/* transform: translate(var(--f-offset), 0); */
+}
+
+/* 色塊進入 SolidIn
+==================================== */
+
+[class*="js-animate--solidin"] {
+	position: relative;
+	opacity: 0;
+	transition: 1700ms cubic-bezier(0.165, 0.84, 0.44, 1) 0ms;
+}
+[class*="js-animate--solidin"]::before,
+[class*="js-animate--solidin"]::after {
+	content: '';
+	position: absolute;
+	display: block;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+[class*="js-animate--solidin"]::before {
+	background: #183981; /* 色塊顏色 */
+	z-index: 1;
+	transition: 0.7s cubic-bezier(0.77, 0, 0.175, 1);
+}
+[class*="js-animate--solidin"]::after {
+	background: #fff; /* 父層背景顏色 */
+	z-index: 2;
+	transition: 1.1s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.js-animate--solidin-up {
+	transform: translateY(50px);
+}
+.js-animate--solidin-up::before,
+.js-animate--solidin-up::after {
+	transform-origin: center top;
+}
+.js-animate--solidin-down {
+	transform: translateY(-50px);
+}
+.js-animate--solidin-down::before,
+.js-animate--solidin-down::after {
+	transform-origin: center bottom;
+}
+
+.js-animate--solidin-left {
+	transform: translateX(-50px);
+}
+.js-animate--solidin-left::before,
+.js-animate--solidin-left::after {
+	transform-origin: right top;
+}
+
+.js-animate--solidin-right {
+	transform: translateX(50px);
+}
+.js-animate--solidin-right::before,
+.js-animate--solidin-right::after {
+	transform-origin: left top;
+}
+
+
+/* 遮罩overflow MaskIn
+==================================== */
+[class*="js-animate--maskin"] {
+	overflow: hidden;
+}
+.js-animate--maskin-up, 
+.js-animate--maskin-down {
+	white-space: nowrap;
+}
+.js-animate--maskin-left .js-animate__item {
+	transform: translateX(-100%);
+}
+.js-animate--maskin-right .js-animate__item {
+	transform: translateX(100%);
+}
+.js-animate--maskin-up .js-animate__item {
+	transform: translateY(-100%);
+}
+.js-animate--maskin-down .js-animate__item {
+	transform: translateY(100%);
+}
+
+/* 翻牌 FlipIn
+==================================== */
+.js-animate--flipin .js-animate__item {
+	/* perspective: 100px; */
+	display: inline-block;
+	opacity: 0;
+	transform: perspective(100px) rotateY(-45deg);
+}
+
+/* Active 放後面覆蓋
+==================================== */
+
+.js-animate--active,
+.js-animate--active .js-animate__item {
+	opacity: 1;
+	transform: none;
+	/* transition: opacity 1s, transform 1s; */
+	transition-duration: 1s, 1s;
+	transition-property: opacity, transform;
+	/* transition: opacity var(--f-time), transform var(--f-time); */
+}
+
+.js-animate--solidin-up.js-animate--active::before,
+.js-animate--solidin-up.js-animate--active::after,
+.js-animate--solidin-down.js-animate--active::before,
+.js-animate--solidin-down.js-animate--active::after {
+	transform: scaleY(0);
+}
+.js-animate--solidin-left.js-animate--active::before,
+.js-animate--solidin-left.js-animate--active::after,
+.js-animate--solidin-right.js-animate--active::before,
+.js-animate--solidin-right.js-animate--active::after {
+	transform: scaleX(0);
+}
+[class*="js-animate--maskin"].js-animate--active .js-animate__item {
+	transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.js-animate--flipin.js-animate--active .js-animate__item {
+	transform: perspective(100px) rotateY(0);
+}
+
+/* Delay & Duration
+==================================== */
+
+.animate-delay50 {
+	transition-delay: 0.05s;
+}
+.animate-delay100 {
+	transition-delay: 0.1s;
+}
+.animate-delay150 {
+	transition-delay: 0.15s;
+}
+.animate-delay200 {
+	transition-delay: 0.2s;
+}
+.animate-delay250 {
+	transition-delay: 0.25s;
+}
+.animate-delay300 {
+	transition-delay: 0.3s;
+}
+.animate-delay400 {
+	transition-delay: 0.4s;
+}
+.animate-delay500 {
+	transition-delay: 0.5s;
+}
+.animate-delay600 {
+	transition-delay: 0.6s;
+}
+.animate-delay700 {
+	transition-delay: 0.7s;
+}
+.animate-delay800 {
+	transition-delay: 0.8s;
+}
+.animate-delay900 {
+	transition-delay: 0.9s;
+}
+.animate-delay1000 {
+	transition-delay: 1s;
+}
+
+.animate-dur100,
+.animate-dur100::before,
+.animate-dur100::after {
+	transition-duration: .1s;
+}
+.animate-dur200,
+.animate-dur200::before,
+.animate-dur200::after {
+	transition-duration: .2s;
+}
+.animate-dur300,
+.animate-dur300::before,
+.animate-dur300::after {
+	transition-duration: .3s;
+}
+.animate-dur400,
+.animate-dur400::before,
+.animate-dur400::after {
+	transition-duration: .4s;
+}
+.animate-dur500,
+.animate-dur500::before,
+.animate-dur500::after {
+	transition-duration: .5s;
+}
+.animate-dur1500 {
+	transition-duration: 1.5s;
+}
+.animate-dur2000 {
+	transition-duration: 2s;
+}
+
+@media (min-width: 768px) {
+	.animate-delay100-md {
+		transition-delay: 0.1s;
+	}
+	.animate-delay150-md {
+		transition-delay: 0.15s;
+	}
+	.animate-delay200-md {
+		transition-delay: 0.2s;
+	}
+	.animate-delay250-md {
+		transition-delay: 0.25s;
+	}
+	.animate-delay300-md {
+		transition-delay: 0.3s;
+	}
+	.animate-delay400-md {
+		transition-delay: 0.4s;
+	}
+	.animate-delay500-md {
+		transition-delay: 0.5s;
+	}
+	.animate-delay600-md {
+		transition-delay: 0.6s;
+	}
+	.animate-delay700-md {
+		transition-delay: 0.7s;
+	}
+	.animate-delay800-md {
+		transition-delay: 0.8s;
+	}
+	.animate-delay900-md {
+		transition-delay: 0.9s;
+	}
+	.animate-delay1000-md {
+		transition-delay: 1s;
+	}
+}
+
+@media (min-width: 1024px) {
+	.animate-delay100-lg {
+		transition-delay: 0.1s;
+	}
+	.animate-delay150-lg {
+		transition-delay: 0.15s;
+	}
+	.animate-delay200-lg {
+		transition-delay: 0.2s;
+	}
+	.animate-delay250-lg {
+		transition-delay: 0.25s;
+	}
+	.animate-delay300-lg {
+		transition-delay: 0.3s;
+	}
+	.animate-delay400-lg {
+		transition-delay: 0.4s;
+	}
+	.animate-delay500-lg {
+		transition-delay: 0.5s;
+	}
+	.animate-delay600-lg {
+		transition-delay: 0.6s;
+	}
+	.animate-delay700-lg {
+		transition-delay: 0.7s;
+	}
+	.animate-delay800-lg {
+		transition-delay: 0.8s;
+	}
+	.animate-delay900-lg {
+		transition-delay: 0.9s;
+	}
+	.animate-delay1000-lg {
+		transition-delay: 1s;
+	}
+}

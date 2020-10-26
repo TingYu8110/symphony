@@ -1,0 +1,380 @@
+@import url("https://fonts.googleapis.com/css?family=#{$google-font}:300,400,400i,700,900");
+
+body {
+	color: $text-default;
+	font: 100%/#{$line-height-lg} $font-family-base;
+}
+
+// 連結 a-文字連結
+a {
+	color: $gray-6;
+	text-decoration: underline;
+	@include active-hover {
+		color: $text-primary;
+		text-decoration: none;
+		outline: 0;
+	}
+}
+// 標題 heading
+.heading1,
+.heading2,
+.heading3,
+.heading4,
+.heading5,
+.heading6 {
+	font-weight: bold;
+	line-height: 1.25;
+	text-align: center;
+	text-transform: none;
+	color: $text-dark;
+}
+// 標題文字尺寸
+.heading1 {
+	font-size: 30px;
+	margin-bottom: 5px;
+	@include breakpoint(lg) {
+		font-size: 40px;
+		margin-bottom: 10px;
+	}
+}
+.heading2 {
+	font-size: 16px;
+	margin: 0 0 15px;
+	// line-height: 1.5;
+}
+.heading3 {
+	// font-size: 1.25em;20/16
+}
+.heading4 {
+
+}
+.heading5 {
+
+}
+.heading6 {
+	font-size: 1em;
+}
+.heading-desc {
+	text-align: center;
+	font-size: 18px;
+	margin-bottom: 20px;
+
+	@include breakpoint(lg) {
+		margin-bottom: 40px;
+	}
+}
+// 內文
+.page-paragraph {
+	font-size: 14px;
+	line-height: $line-height-xl;
+	// margin-bottom: 20px;
+}
+// 日期
+.time {
+	font-size: 12px;
+	color: $text-light;
+	font-weight: 300;
+}
+.text {
+	font-size: 14px;
+}
+// 粗體
+.text-bold {
+	font-weight: bold;
+}
+
+
+.text-primary {
+	color: $text-primary;
+	&:hover, &:focus {
+		color: $text-primary;
+	}
+}
+
+.text-secondary {
+	color: $text-secondary;
+	&:hover, &:focus {
+		color: $text-secondary;
+	}
+}
+.text-dark {
+	color: $text-dark;
+	&:hover, &:focus {
+		color: $text-dark;
+	}
+}
+.text-third {
+	color: #888;
+}
+
+.text-fourth {
+	color: #eee;
+}
+
+// 文字-成功色系
+.text-success {
+	color:$success;
+	&:hover, &:focus {
+		color: $success;
+	}
+}
+// 文字-資訊色系
+.text-info {
+	color: $info;
+	&:hover, &:focus {
+		color: $info;
+	}
+}
+// 文字-警告色系
+.text-warning {
+	color: $warning;
+	&:hover, &:focus {
+		color: $warning;
+	}
+}
+
+.bg-primary {
+	background: $primary;
+}
+
+
+.btn-link {
+	// display: block;
+	text-decoration: underline;
+	background: transparent;
+	// width: 100%;
+	&:active {
+		text-decoration: none;
+	}
+}
+
+// 文字列表
+.listtext {
+	padding: 0 0 0 30px;
+	line-height: 1.4;
+	&--no {
+		padding-left: 0;
+		list-style-type: none;
+	}
+	// 序列項目列表-數字+括號[(1),(2),(3)]
+	&--decimal-arc {
+		counter-reset: counter;
+
+		> .listtext__item {
+			list-style: none;
+			position: relative;
+			&::before {
+				counter-increment: counter;
+				content: '('counter(counter)')';
+				position: absolute;
+				left: -1.5em;
+			}
+		}
+	}
+	// 序列項目列表-中文數字+括號[(一),(二),(三)]
+	&--cjk-arc {
+		counter-reset: counter;
+		padding-left: 1.5em;
+
+		> .listtext__item {
+			list-style: none;
+			position: relative;
+			padding-left: .3em;
+		
+			&::before {
+				counter-increment: counter;
+				content: '('counter(counter, cjk-ideographic)')';
+				position: absolute;
+				left: -1.5em;
+			}
+		}
+	}
+
+
+	// 項目
+	&__item {
+		margin-bottom: 15px;
+
+		// 無序項目列表-實心圓形
+		.listtext--disc > & {
+			list-style-type: disc;
+		}
+		// 無序項目列表-空心圓點
+		.listtext--circle > & {
+			list-style-type:circle;
+		}
+		// 無序項目列表-實心方形
+		.listtext--square > & {
+			list-style-type: square;
+		}
+		// 無序項目列表-實心方形
+		.listtext--no > & {
+			list-style-type: none;
+		}
+		// 序列項目列表-數字(1,2,3)
+		.listtext--decimal > & {
+			list-style-type: decimal;
+		}
+		// 序列項目列表-中文數字(一,二,三)
+		.listtext--cjk > & {
+			list-style-type: cjk-ideographic;
+		}
+		// 序列項目列表-小寫英文字母
+		.listtext--lowerlatin > & {
+			list-style-type: lower-latin;
+		}
+	}
+	
+	// 左側資料
+	&__field {
+		display: block;
+		float: left;
+		text-align: right;
+		width: 90px;
+	}
+	// 右側資料
+	&__data {
+		display: block;
+		padding: 0 0 0 90px;
+		word-break: break-all;
+		word-wrap: break-word;
+	}
+}
+.listtext {
+	&__item {
+		// 文字列表-大閒距
+		.listtext--gap > & {
+			margin-bottom: 1.5em;
+		}
+		.listtext--lg > & {
+			font-size: 14px;
+			font-weight: bold;
+		}
+		* {
+			// font-size: initial;
+			font-weight: initial;
+
+			@include ie-only {
+				font-size: medium;
+				font-weight: normal;
+			}
+		}
+	}
+}
+// 內文區
+.text-article {
+	line-height: 1.625;
+	overflow-wrap: break-word ;
+	word-wrap: break-word;
+
+	// 內文 > 中文有序列表
+	.listtext--cjk{
+		padding-left: 2.5em;
+	}
+	// 內文 > 無序列表-實心圓形
+	.listtext--disc {
+		padding-left: 1.5em;
+	}
+
+	// 內文標題
+	&__heading {
+		font-weight: bold;
+		font-size: 18px;
+		margin-bottom: 20px;
+		color: $text-dark;
+		&--bg{
+			font-size: 16px;
+			background: $bg-light;
+			padding: px-em(10);
+		}
+		&:first-child {
+			@include breakpoint(md) {
+				margin-top: 20px;
+			}
+		}
+		&--black {
+			color: inherit;
+		}
+		// 內文標題-間距小
+		&--gap-sm {
+			margin-bottom: px-em(6,18);
+		}
+	}
+	&__subheading {
+		font-weight: bold;
+		margin-bottom: 10px;
+		color: $text-dark;
+		font-size: 14px;
+	}
+
+	// 內文段落
+	&__paragraph {
+		margin: 0 0 2.15em;
+		// 內文段落-間距上
+		&--gap-top {
+			margin-top: 2.15em;
+		}
+	}
+}
+
+
+// 備註
+.note {
+	font-size: 14px;
+	margin-bottom: 10px;
+}
+// 條列資訊 list-report
+// ----------------------------------------
+.list-report {
+	padding: 0;
+	list-style: none;
+
+	&__item {
+		margin-bottom: 15px;
+		display: flex;
+		font-size: 14px;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+	&__item--all{
+		flex-wrap: wrap;
+	}
+	&__title {
+		font-weight: bold;
+		flex-shrink: 0;
+		color: $text-dark;
+		float: none;
+		width: 80px;
+		text-align: left;
+		@include breakpoint(md) {
+		}
+		// 整欄-標題
+		.list-report__item--all & {
+			float: none;
+			width: 100%;
+			text-align: left;
+			margin-bottom: 10px;
+		}
+		&::after{
+			content: "：";
+			display: inline;
+			.list-report__item--all &{
+				display: none;
+			}
+		}
+	}
+	&__data {
+		word-break: break-all;
+		word-wrap: break-word;
+	
+		@include breakpoint(md) {
+			padding-left: 0;
+		}
+	
+		// 整欄-參數
+		.list-report__item--all & {
+			padding-left: 0;
+		}
+	}
+}

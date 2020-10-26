@@ -1,0 +1,201 @@
+// 購買數量控制區
+
+// 數量表單
+.form-qty {
+	width: 100%;
+	position: relative;
+	// 標題
+	&__legend {
+		display: none;
+	}
+	// 內容區
+	&__body {
+
+	}
+	&__word {
+		font-size: 14px;
+
+		&::before {
+			content: "數量：";
+
+			@include breakpoint(md) {
+				content: none;
+			}
+		}
+	}
+
+	// 回饋訊息
+	&__feedback {
+		display: none;
+		font-size: 14px;
+		margin: 7px 0 0 0;
+
+		@include breakpoint(md) {
+			margin-bottom: 0;
+		}
+		// 訊息-無庫存
+		.form-qty__field--outstock & {
+			color: $warning;
+			display: block;
+		}
+
+		i {
+			font-size: 20px;
+			margin-top: -4px;
+		}
+	}
+	// 欄位名
+	&__label{
+		font-size: 14px;
+		margin-bottom: 5px;
+		display: none;
+	}
+	// 填寫群組
+	&__input-group {
+		position: relative;
+	}
+	// input
+	&__input {
+		text-align: center;
+		padding: 5px;
+		&:focus {
+			border-color: initial;
+			border-color: #e4ecf0;
+		}
+		&[disabled],
+		&[readonly] {
+			background-color: $gray-f4;
+			border-color: $disabled;
+		}
+	}
+	// 加減欄位
+	&__field-qty{
+	}
+
+	// 按鈕
+	&__btn-subtract,
+	&__btn-add {
+		@include size(30px);
+		margin: auto;
+		color: $white;
+		background-color: transparent;
+		overflow: hidden;
+		padding: 0;
+		text-indent: 100%;
+		vertical-align: top;
+		white-space: nowrap;
+		min-width: inherit;
+		border-radius: 0;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		z-index: 0;
+		background: $gray-3;
+
+		@include active-hover {
+			//color: #333;
+			background: $gray-6;
+		}
+
+		&[disabled] {
+			background: $gray-f4;
+			.form-qty__btn-icon {
+				color: #ccc;
+			}
+		}
+	}
+	// 按鈕-減
+	&__btn-subtract {
+		left: 1px;
+	}
+	// 按鈕-加
+	&__btn-add {
+		right: 1px;
+	}
+	// 按鈕-icon
+	&__btn-icon {
+		display: inline-block;
+		font-size: 1em;
+		left: 50%;
+		margin: -8px 0 0 -8px;
+		position: absolute;
+		top: 50%;
+		text-indent: 0;
+		pointer-events: none;
+	}
+}
+
+
+
+.form-qty--size-s {
+	.form-qty {
+		&__btn-subtract,
+		&__btn-add {
+			@include size(26px);
+		}
+		&__input {
+			min-height: 30px;
+		}
+		&____select {
+			padding: 5px;
+			height: 30px;
+			padding: 3px;
+		}
+	}
+}
+
+.form-qty--size-m {
+	.form-qty {
+		&__btn-subtract,
+		&__btn-add {
+			@include size(44px);
+		}
+
+		&__input {
+			min-height: 46px;
+		}
+		&__select {
+			min-height: 46px;
+		}
+	}
+}
+
+
+
+// 下拉選單模式
+.form-qty-select {
+	select {
+		&.form-qty__form-control {
+			max-width: 96px;
+			padding: 10px;
+			min-width: 96px;
+		}
+		&.form-qty__form-control2 {
+
+			@include breakpoint(md) {
+				min-height: 20px;
+				padding: 5px 10px;
+			}
+		}
+	}
+}
+
+
+// ----------橫向----------
+.form-qty--horizontal {
+	.form-qty {
+		&__body {
+			margin: 0 -5px 15px;
+			font-size: 0;
+			letter-spacing: -4px;
+			word-spacing: 0;
+		}
+		&__field {
+			display: inline-block;
+			margin: 0 5px;
+			text-align: center;
+			font-size: 16px;
+			width: calc(50% - 10px);
+		}
+	}
+}

@@ -1,0 +1,131 @@
+//表格 tabl
+table {
+	max-width: 100%;
+	background-color: transparent;
+	border-collapse: collapse;
+	border-spacing: 0;
+	width: 100%;
+	> caption {
+		height: 0;
+		overflow: hidden;
+		text-indent: 100%;
+		white-space: nowrap;
+		width: 0;
+	}
+}
+
+// 表格
+.table {
+	// background: $white;
+	margin-bottom: 20px;
+	overflow: hidden;
+	// border-bottom: 1px solid $border-default;
+	color: $text-dark;
+	
+	&__row {
+		border-bottom: 1px solid $border-default;
+		position: relative;
+		padding: 10px;
+		@include breakpoint(lg) {
+			display: table;
+			width: 100%;
+			padding: 0;
+		}
+	}
+	&__row:last-child{
+		border-bottom: none;
+		@include breakpoint(lg) {
+			border-bottom: 1px solid $border-default;
+		}
+	}
+	&__head, &__body {
+		@include breakpoint(lg) {
+			display: table;
+			width: 100%;
+		}
+	}
+	&__head {
+		display: none;
+		@include breakpoint(lg) {
+			display: table;
+			background: $gray-6;
+			color: $white;
+			font-size: 16px;
+		}
+	}
+	&__cell {
+		line-height: 1.4;
+		@include breakpoint(lg) {
+			text-align: center;
+		}
+		.table__head &,
+		.table__body & {
+			@include breakpoint(lg) {
+				display: table-cell;
+				// text-align: center;
+				vertical-align: middle;
+				padding: 10px 6px;
+			}
+		}
+		.table__head & {
+			@include breakpoint(lg) {
+				padding: 7px 10px;
+			}
+		}
+		.table__body & {
+			margin: 10px 0;
+			// padding: 15px;
+			// line-height: 1.5;
+			// border-bottom: 1px solid $border-default;
+			// padding-right: 80px;
+			// 前綴
+			&::before {
+				content: attr(data-th) "：";
+				display: block;
+				float: left;
+				width: 80px;
+				// margin: -1px 0 0;
+				// font-weight: normal;
+				@include breakpoint(lg) {
+					display: none;
+				}
+				
+			}
+
+			&:first-child, &:last-child {
+				// margin: 4px 0;
+				@include breakpoint(lg) {
+					margin: 0;
+				}
+			}
+			&:last-child{
+				border-bottom: none;
+				margin-bottom: 0;
+			}
+		}
+	}
+	&__cell-value{
+		display: block;
+		padding-left: 42px;
+		@include breakpoint(lg) {
+			padding-left: 0;
+		}
+
+	}
+	&__cell--center{
+		@include breakpoint(lg) {
+			text-align: center;
+		}
+	}
+	&__cell--right{
+		text-align: right;
+	}
+	// 表格-備註
+	&__tips {
+		font-size: 0.875em;
+		margin-bottom: 20px;
+		.table + & {
+			margin-top: -10px;
+		}
+	}
+}

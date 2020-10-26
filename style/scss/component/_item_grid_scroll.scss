@@ -1,0 +1,104 @@
+// 有橫軸Srcoll
+
+
+// XS
+@media (max-width: (map-get($grid-breakpoints, md) - 1px)) {
+
+	.grid-xs--scroll {
+		$gap: 6px;
+
+		flex-wrap: nowrap;
+		white-space: nowrap;
+		overflow-x: auto;
+		overflow-y: hidden;
+		-webkit-overflow-scrolling: touch;
+		-ms-overflow-style: -ms-autohiding-scrollbar;
+		margin: (-$gap) ($gap * -2);
+		padding: 0 $gap;
+
+		// for flex padding collapse
+		&::after {
+			content: "";
+			flex: 0 0 $gap;
+		}
+
+		.grid__item {
+			white-space: normal;
+			margin: $gap;
+		}
+	}
+
+	.grid__item {
+		.grid-xs-1--scroll & {
+			width: calc(100% - 120px);
+		}
+		.grid-xs-2--scroll & {
+			width: calc(50% - 30px);
+		}
+	}
+}
+
+
+@media (min-width: map-get($grid-breakpoints, md)) and (max-width: (map-get($grid-breakpoints, lg) - 1px) ) {
+	$gap: 7px;
+
+	.grid-md--scroll {
+		flex-wrap: nowrap;
+		white-space: nowrap;
+		overflow-x: auto;
+		margin: (-$gap) ($gap * -2);
+		padding: 0 $gap;
+
+		// for flex padding collapse
+		&::after {
+			content: "";
+			flex: 0 0 $gap;
+		}
+
+		.grid__item {
+			white-space: normal;
+			margin: $gap;
+		}
+	}
+	
+	.grid__item {
+		.grid-md-2--scroll & {
+			width: calc(50% - 52px);
+		}
+		.grid-md-3--scroll & {
+			width: calc(33.333% - 40px);
+		}
+		.grid-md-4--scroll & {
+			width: calc(25% - 30px);
+		}
+		.grid-md-5--scroll & {
+			width: calc(20% - 20px);
+		}
+	}
+}
+
+
+@include breakpoint(lg) {
+	.grid-lg--scroll {
+		white-space: nowrap;
+		overflow-x: auto;
+		margin: 0 -9px 9px;
+		padding: 0;
+
+		// for style webkit scrollbar
+		&::-webkit-scrollbar {
+			width: 5px;
+			height: 5px;
+		}
+		&::-webkit-scrollbar-track {
+			-webkit-border-radius: 10px;
+			border-radius: 10px;
+			margin: 80px 0 5px 0;
+		}
+		&::-webkit-scrollbar-thumb {
+			-webkit-border-radius: 4px;
+			border-radius: 4px;
+			background: rgb(219,219,219);
+		}
+	}
+}

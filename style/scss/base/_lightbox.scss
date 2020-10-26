@@ -1,0 +1,229 @@
+// 訊息燈箱
+.lightbox {
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	position: fixed;
+	overflow-x: hidden;
+	overflow-y: auto;
+	background: rgba(0,0,0,.5);
+	transition: all .25s ease-in-out, opacity .2s linear;
+	z-index: 1000;
+	pointer-events: none;
+	opacity: 0;
+
+	// 開啟
+	&--active {
+		opacity: 1;
+		top: 0;
+		bottom: 0;
+		z-index: 1000;
+		pointer-events: auto;
+	}
+	// 內容盒
+	&__box {
+		line-height: 1.4;
+		position: relative;
+		width: auto;
+		transform: translate(0, -50%);
+		transition: transform .1s ease-out;
+		margin: 10px auto;
+		background: $white;
+		box-shadow: 0 0 10px rgba(0,0,0,.15);
+		@include radius(10px);
+		//  滿版-phone
+	}
+	&__content{
+		background-clip: padding-box;
+		position: relative;
+		margin-top: 100px;
+
+	}
+	//  標題
+	&__head{
+		padding: 30px 44px 15px;// 12/18 20/18
+		border-bottom: 1px solid $border-default;
+
+		&--left {
+			padding-left: 15px;
+		}
+		.lightbox--notitle &{
+			border-bottom: none;
+		}
+	}
+	&__title{
+		color: $text-dark;
+		text-align: center;
+		font-weight: bold;
+		font-size: 18px;
+		.lightbox--notitle &{
+			display: none;
+		}
+	}
+
+	// 關閉按鈕
+	&__btn-close {
+		@include flex-center;
+		@include size(34px);
+		text-decoration: none;
+		position: absolute;
+		right: 8px;
+		top: 8px;
+		color: $gray-9;
+		// margin: 4px;
+		// background: $bg-light;
+		@include radius(50%);
+		@include active-hover{
+			color: $text-dark;
+		}
+	}
+	&__close-icon{
+		text-decoration: none;
+		transition: background .3s;
+		font-size: 20px;
+
+	}
+	//  內容
+	&__body{
+		padding: 15px 20px;
+		.lightbox--notitle &{
+			padding: 5px 20px 25px;
+		}
+		&--scroll {
+			max-height: 390px;
+			overflow-y: auto;
+			margin: 0 10px 10px 0;
+			display: inline-block;
+			padding-top: 0;
+			//  for style webkit scrollbar
+			&::-webkit-scrollbar {
+				width: 5px;
+				height: 5px;
+			}
+			&::-webkit-scrollbar-track {
+				@include radius(10px);
+				background: #9e9797;
+			}
+			&::-webkit-scrollbar-thumb {
+				@include radius(6px);
+				background: $secondary;
+			}
+		}
+		&--center {
+			display: flex;
+			justify-content: center;
+		}
+	}
+	&__footer{
+		padding: 0 20px 25px;
+	}
+
+	//  描述
+	&__desc {
+		line-height: $line-height-xl;
+		text-align: center;
+		overflow: hidden;
+	}
+
+	//  動作按鈕
+	&__btn {
+		// padding: 11px 5px;
+		// font-size: 16px;
+	}
+	.section{
+		margin-bottom: 30px;
+	}
+
+	.list-report__item {
+		margin-bottom: 10px;
+	}
+}
+
+// 開啟
+.lightbox--active .lightbox__box {
+	transform: translate(0,0);
+}
+
+.lightbox--sm .lightbox__box {
+	max-width: 345px;
+	
+	@include breakpoint(md) {
+		max-width: 370px;
+	}
+}
+.lightbox--sm .lightbox__content{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	min-height: 227px;
+}
+.lightbox--md .lightbox__box {
+	max-width: 345px;
+	@include breakpoint(md) {
+		max-width: 560px;
+	}
+}
+.lightbox--lg .lightbox__box {
+	max-width: 700px;
+}
+//  滿版-phone
+.lightbox--body-scroll {
+	.lightbox{
+		&__box {
+			margin-top: 0;
+			margin-bottom: 0;
+			transform: translate(0, 100%);
+			@include radius(0);
+			@include breakpoint(md) {
+				max-width: 500px;
+				margin-top: 10px;
+				margin-bottom: 10px;
+			}
+		}
+		&__head{
+			padding-top: 14px;
+			@include breakpoint(md) {
+				padding: 20px 44px;
+			}
+		}
+		&__title{
+			font-size: 18px;
+		}
+		&__content{
+			margin-top: 0;
+			@include breakpoint(md) {
+				margin-top: 85px;
+			}
+		}
+		&__body{
+			// max-height: calc(100vh - 45px);
+			height: calc(100vh - 45px);
+			overflow-y: auto;
+			// display: inline-block;
+			//  for style webkit scrollbar
+			&::-webkit-scrollbar {
+				width: 5px;
+				height: 5px;
+			}
+			&::-webkit-scrollbar-track {
+				@include radius(10px);
+				background: $bg-light;
+			}
+			&::-webkit-scrollbar-thumb {
+				@include radius(6);
+				background: $gray-3;
+			}
+			@include breakpoint(md) {
+				height: initial;
+				overflow-y: initial;
+				margin: initial;
+			}
+		}
+	}
+
+
+}
+.lightbox--body-scroll.lightbox--active .lightbox__box{
+	transform: translate(0, 0);
+}

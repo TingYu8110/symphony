@@ -1,0 +1,26 @@
+.logo {
+	overflow: hidden;
+	width: 122px;
+	height: 25px;
+	@include breakpoint(lg) {
+		width: 157px;
+		height: 32px;
+	}
+	// logo連結
+	&__link {
+		display: block;
+		// 推走logo內文字
+		text-indent: 100%;
+		white-space: nowrap;
+	}
+	// 網站圖片
+	&__img {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: auto;
+		max-height: 100%;
+	}
+}
+

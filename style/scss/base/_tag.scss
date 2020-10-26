@@ -1,0 +1,178 @@
+.tag {
+	background: $orange-darker;
+	color: $white;
+	text-transform: uppercase;
+	padding: 3px 5px;
+	font-size: 12px;
+	font-weight: bold;
+	// letter-spacing: 1px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 3;
+	align-items: center;
+	display: none;
+	&--show{
+		display: inline-flex;
+	}
+	&--primary{
+		background:$orange-darker;
+	}
+	&--secondary{
+		background:$secondary;
+	}
+	&--third{
+		background:$third;
+	}
+}
+
+.taglist {
+	margin: -3px;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	// 項目
+	&__item {
+		margin: 3px;
+
+		// 間距開
+		.taglist--strong & {
+			margin: 6px 4px;
+		}
+	}
+	// 連結
+	&__link,
+	&__text {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 30px;
+		padding: 6px 10px 5px;
+		text-decoration: none;
+		font-size: 12px;
+		background: $white;
+		border: 1px solid $border-default;
+		.taglist--opacity{
+			background: rgba(255, 255, 255, .25);
+			color: $white;
+			border-color: rgba(255, 255, 255, .25);
+		}
+		.taglist--md &{
+			@include breakpoint(lg) {
+				font-size: 14px;
+				padding: 10px 10px 9px;
+			}
+		}
+		
+	}
+	
+	// 連結-active
+	&__link {
+		// 間距開
+		.taglist--strong & {
+			color: $text-default;
+		}
+		@include active-hover{
+			background: $border-default;
+			color: $text-default;
+		}
+		@include breakpoint(lg) {
+			// transition: .3s ease;
+		}
+	}
+	// 間距開
+	&--strong {
+		margin: -6px -4px;
+	}
+}
+.tag-event {
+	color: $white;
+	display: block;
+	font-size: 13px;
+	padding: 5px 0 0 4px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 1;
+
+	&::after {
+		content: " ";
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 49px 57px 0 0;
+		border-color: $red transparent transparent transparent;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+	}
+}
+
+
+.tag-time {
+	display: none;
+	background: $red;
+	color: $white;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 44px;
+	min-height: 69px;
+	padding: 4px 0;
+	font-size: 14px;
+	text-align: center;
+	font-weight: 600;
+	pointer-events: none;
+	z-index: 2;
+
+	&--show {
+		display: block;
+	}
+	&__icon {
+		font-size: 20px;
+		margin-bottom: .25em;
+		font-weight: normal;
+		display: block;
+	}
+	&__strong {
+		font-size: 18px;
+	}
+}
+
+
+
+// 商店類型
+.tag-store {
+	display: inline-block;
+	font-size: 0;
+	width: 60px;
+	height: 20px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	// 廚房
+	&--kitchen {
+		// background: #0054ac;
+		background-image: url(../images/store/tag_kitchen.svg?t=20180921v1);
+	}
+	// outlet
+	&--outlet {
+		// background: #bd0f0f;
+		background-image: url(../images/store/tag_outlet.svg?t=20180921v1);
+	}
+}
+.tag-product{
+	padding: 3px 5px;
+	text-align: center;
+	min-width: 44px;
+	line-height: 25px;
+	font-size: 13px;
+	color: $white;
+	background: $primary;
+	font-weight: bold;
+	pointer-events: none;
+	max-width: 10em;
+	overflow:hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}

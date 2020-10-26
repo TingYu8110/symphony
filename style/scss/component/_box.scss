@@ -1,0 +1,187 @@
+// 區塊(div、fieldset)
+// 框線區塊
+.box-border {
+	background: $white;
+	// @include border;
+	padding: 15px;
+	@include radius(20px);
+	@include breakpoint(lg) {
+		padding: 40px 45px;
+		// background: $white;
+		// @include border;
+		// padding: 25px;
+		box-shadow: 0 3px 6px rgba(0, 0, 0, .16)
+	}
+}
+.box {
+	margin-bottom: 40px;
+	position: relative;
+
+	@include breakpoint(md) {
+		margin-bottom: 30px;
+	}
+	@include breakpoint(lg) {
+		margin-bottom: 50px;
+	}
+
+	&--bg {
+		background: $white;
+		padding: 10px;
+	}
+
+	//區塊-標題
+	&__heading {
+		text-align: center;
+		padding: 18px 0;
+		margin: -18px 0 0 0;
+		position: relative;
+		@include breakpoint(lg) {
+			padding: 27px 0;
+			margin: -18px 0 0 0;
+		}
+		&--center {
+			text-align: center;
+		}
+	}
+	&__heading--seperate-sm{
+		// display: flex;
+		// align-items: center;
+		// justify-content: space-between;
+		// justify-content: center;
+		@include breakpoint(lg) {
+			// justify-content: center;
+		}
+	}
+	//區塊-標題
+	&__title {
+		font-size: 18px;
+		font-weight: bold;
+		color: $text-primary;
+		
+		@include breakpoint(lg) {
+			font-size: 24px;
+		}
+	}
+	&__tool{
+		position: absolute;
+		right: 0;
+		top: 5px;
+		@include breakpoint(lg) {
+			top: 17px;
+		}
+	}
+	// 區塊-標題提示
+	&__heading-tips{
+		color: $info;
+		display: block;
+		margin: 6px 0 2px;
+	}
+
+	// 區塊-內容
+	&__body {
+		overflow: hidden;
+		//框線區塊-內容（只有在登入、註冊用到）
+		&--bg-md {
+			@include breakpoint(md) {
+				background: $white;
+				padding: 35px 45px;
+				// @include radius(10px);
+			}
+			@include breakpoint(lg) {
+			}
+		}
+	}
+	&__intro {
+		font-size: 14px;
+		line-height: $line-height-xl;
+		text-align: center;
+		margin-bottom: 2em;
+
+		&--left {
+			text-align: left;
+		}
+	}
+	&__info {
+		margin-top: 20px;
+		text-align: center;
+		margin-bottom: 5px;
+	}
+	// 按鈕區
+	&__btnbox {
+		margin-top: 30px;
+	}
+	// 提示
+	&__tips{
+		font-size: 14px;
+		line-height: $line-height-xl;
+		margin-top: 20px;
+	}
+	// 還不是會員
+	&__bottom-text{
+		text-align: center;
+		font-size: 14px;
+		line-height: $line-height-xl;
+		margin-top: 20px;
+	}
+	// 或
+	&__hr {
+		background: $border-default;
+		display: block;
+		height: 1px;
+		position: relative;
+		top: 0;
+		right: 0;
+		left: 0;
+		width: 100%;
+		z-index: 0;
+		margin: 25px 0;
+		text-align: center;
+
+		&-text {
+			color: $text-dark;
+			background: $white;
+			display: inline-block;
+			padding: 0 .45em;
+			position: relative;
+			text-align: center;
+			z-index: 1;
+			top: -8px;
+			font-weight: normal;
+			@include breakpoint(md) {
+				background: $white;
+			}
+
+		}
+	}
+
+	// 註冊步驟標題
+	&__step-headingbox {
+		@include breakpoint(md) {
+			margin: 40px 0 35px;
+		}
+	}
+	&__step-heading-text {
+		font-size: 18px;
+		font-weight: bold;
+	}
+	&__step-subheading-text {
+		font-size: 14px;
+		top: -10px;
+	}
+}
+
+
+
+
+
+// 頁籤區塊
+.box-tab {
+	padding-top: 90px;
+}
+
+// 左右兩邊
+.box-seperate {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}

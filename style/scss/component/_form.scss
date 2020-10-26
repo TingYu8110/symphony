@@ -1,0 +1,978 @@
+// 預設radio、checkbox
+input {
+	&[type=radio] {
+		vertical-align: top;
+	}
+	&[type=checkbox] {
+		vertical-align: middle;
+	}
+}
+
+// 表單
+// ----------------------------------------
+.form {
+	width: 100%;
+	position: relative;
+
+	// field-網格橫列
+	.row {
+		overflow: hidden;
+	}
+
+	&__control {
+		font-family: $font-family-base;
+		font-size: 16px;
+		line-height: 1.15;
+		width: 100%;
+		padding: 10px;
+		min-height: 44px;
+		border: 1px solid $border-default;
+		background: $white;
+		@include radius(10px);
+
+		@at-root {
+			// select 設定
+			select#{&} {
+				padding: 10px;
+				background: $white url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='42' height='42' viewBox='177 45 42 42'%3E%3Cpath fill='%23666' d='M204 63.686l-1.371-1.371L198 66.942l-4.628-4.628L192 63.686l6 6 6-6z'/%3E%3C/svg%3E") right center no-repeat;
+			}
+			// textarea 設定
+			textarea#{&} {
+				height: auto;
+				resize: vertical;
+			}
+		}
+
+		&[disabled],
+		&[readonly],
+		fieldset[disabled] & {
+			cursor: not-allowed;
+			// filter: alpha(opacity=65);
+			box-shadow: none;
+			// opacity: .65;
+			background-color: $bg-light;
+			border-color: $disabled;
+		}
+		.form__field--error & {
+			border-color: $warning;
+		}
+	}
+	&__control--date{
+		background: $white url('../images/bg_date.svg') 98% center no-repeat;
+		background-size: 24px;
+	}
+	// 多個為一個from_field的
+	&__controls {
+		margin-bottom: 18px;
+		// 控制項-focus
+		&:focus {
+			border-color: $border-default;
+			outline: 0;
+			box-shadow: 0 0 5px rgba(0,0,0,.35);
+		}
+	}
+	// 標題
+	&__legend {
+		display: none;
+	}
+	// 引言短句
+	&__intro {
+		margin: 0 0 1em;
+	}
+
+	// 橫列
+	&__field {
+		margin-bottom: 30px;
+		// 清除field浮動
+		&::after{
+			clear: both;
+			content: " ";
+			display: block;
+			height: 0;
+			line-height: 0;
+			visibility: hidden;
+		}
+	}
+	&__field:last-child{
+		margin-bottom: 0;
+	}
+	// 驗證區
+	&__field-verify {
+		img {
+			width: auto;
+			max-width: none;
+		}
+	}
+	// 生日
+	&__field-birth {
+		.form__control-row {
+			margin: 0 -5px;
+			overflow: hidden;
+			@include breakpoint(md) {
+
+			}
+		}
+		// 年月日
+		.form__control-year,
+		.form__control-month,
+		.form__control-day {
+			display: block;
+			float: left;
+			margin: 0 5px;
+			width: calc(33.33333333% - 10px);
+			@include breakpoint(md) {
+			}
+		}
+		.form__control-year,
+		.form__control-month {
+		}
+	}
+	// 地址
+	&__field-address {
+		.form__control-row {
+			@include breakpoint(md) {
+				margin: 0 -5px;
+				overflow: hidden;
+			}
+		}
+		// 地址-各欄
+		.form__control-city,
+		.form__control-town,
+		.form__control-zip,
+		.form__control-address{
+			display: block;
+		}
+		.form__control-city,
+		.form__control-town,
+		.form__control-zip {
+			@include breakpoint(md) {
+				float: left;
+				margin: 0 5px;
+			}
+		}
+		// 地址-城、市
+		.form__control-city,
+		.form__control-town {
+			@include breakpoint(md) {
+				width: calc(40% - 10px);
+			}
+		}
+		// 地址-郵區
+		.form__control-zip {
+			@include breakpoint(md) {
+				width: calc(20% - 10px);
+			}
+			&::after {
+				@include breakpoint(md) {
+					clear: both;
+					content: " ";
+					display: block;
+					height: 0;
+					line-height: 0;
+				}
+			}
+		}
+		// 地址-詳細地址
+		.form__control-address{
+			@include breakpoint(md) {
+				clear: both;
+			}
+		}
+	}
+	// 勾選欄位-記住條款、記住密碼
+	&__field-keepcheckbox {
+		margin-bottom: 5px;
+	}
+
+
+	// 欄位名
+	&__label{
+		text-align: left;
+		font-weight: normal;
+		margin-bottom: 10px;
+		color: $text-dark;
+		font-size: 16px;
+		@include breakpoint(md) {
+		}
+
+		// 左右欄設計
+		.form--horizontal & {
+			@include breakpoint(lg) {
+				padding: 11px 10px;
+				margin-bottom: 0;
+				text-align: right;
+				float: left;
+				min-height: 1px;
+				width: 120px;
+			}
+		}
+
+		&::before {
+			// 必填-前綴
+			.form__field-required & {
+				content: "* ";
+				display: inline-block;
+				color: $warning;
+				margin-right: 4px;
+			}
+		}
+		// 欄位名-隱藏
+		&--hide {
+			display: none;
+		}
+	}
+
+	&__optgroup {
+		background: $bg-light;
+	}
+	// 填寫內容
+	&__inputgroup {
+		.form__field-required & {
+			position: relative;
+		}
+
+		// 右側欄位
+		.form--horizontal & {
+			@include breakpoint(lg) {
+				padding: 0 0 0 120px;
+			}
+		}
+
+		&--with-btn {
+			display: flex;
+			.btn {
+				margin-left: 10px;
+			}
+		}
+		&--with-icon {
+			position: relative;
+			.icon {
+				position: absolute;
+				right: 10px;
+				top: 11px;
+				color: $gray-9;
+			}
+		}
+		&.loading::after {
+			margin: -0.7em 0em 0em -0.7em;
+			width: 1.4em;
+			height: 1.4em;
+		}
+	}
+	// 餵出-靜態文字
+	&__feedstatic {
+		min-height: 44px;
+		padding: 14px 0 12px;
+		line-height: 1.4;
+	}
+
+	// 註解訊息
+	&__comment {
+		color: $gray-8;
+		font-size: 14px;
+		margin: 5px 0 15px;
+		line-height: $line-height-lg;
+
+		// 跟在後的comment
+		.form__controls + & {
+			margin-top: -10px;
+		}
+	}
+	// 回饋訊息
+	&__feedback {
+		display: none;
+		font-size: 14px;
+		margin: 10px 0 15px;
+		position: relative;
+		padding: 0 0 0 20px;
+		line-height: 1.5;
+
+		// 回饋提示-上有欄位說明
+		.form__comment + & {
+			margin: -5px 0 0;
+		}
+		// 訊息-錯誤
+		.form__field--error & {
+			color: $warning;
+			display: block;
+
+			> a {
+				color: inherit;
+			}
+		}
+		// 訊息-成功
+		.form__field--success & {
+			color: $success;
+			display: block;
+		}
+		// checkbox-附帶（記住密碼、和該input相聯
+		.form__keep + & {
+			// margin-top: -50px;
+		}
+		// 跟在後的feedback
+		.form__controls + & {
+			margin-top: -10px;
+		}
+
+		&-icon {
+			font-size: 20px;
+			margin-top: -5px;
+			position: absolute;
+			left: 0;
+			top: 4px;
+		}
+	}
+	// 回饋訊息-icon
+	&-icon {
+		.form__field--success & {
+			color: $success;
+		}
+		.form__field--error & {
+			color: $warning;
+		}
+	}
+
+	// checkbox-記住設定
+	&__keep {
+		overflow: hidden;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin: 0 0 10px;
+		// checkbox-附帶（記住密碼、和該input相聯）
+		.form__comment + & {
+			margin-top: -8px;
+		}
+	}
+	// checkbox-label
+	&__keep-label {
+		font-size: 14px;
+	}
+	// 記住-左
+	&__keep-item {
+	}
+	// 記住-右
+	&__keep-item--right {
+		// font-size: 14px;
+		// justify-self: flex-end;
+		margin-left: auto;
+	}
+
+	// input、select後緊接著按鈕
+	&__btn-edit {
+		margin: 10px 0 0 0;
+	}
+
+	// 展開欄位-隱藏
+	&__expend {
+		overflow: hidden;
+		transition: max-height .35s;
+		max-height: 0;
+		margin-bottom: 0;
+
+		// 展開欄位-開啟
+		&--open {
+			max-height: 2000px;
+		}
+	}
+}
+
+
+// 上傳檔案
+// ----------------------------------------
+.form-upload {
+	position: relative;
+	// input
+	&__control {
+		// position: fixed;
+		// right: 100%;
+		// bottom: 100%;
+		display: none;
+	}
+	&__label{
+		position: relative;
+		width: 100%;
+		border: 1px dashed $gray-d;
+		@include radius(10px);
+		margin: 10px 0 0;
+		overflow: hidden;
+		position: relative;
+		&::after {
+			content: '';
+			display: block;
+			padding-bottom: 75%;
+		}
+		&:hover {
+			cursor: pointer;
+
+			.form__file-img {
+				opacity: 0.5;
+			}
+		}
+	}
+	// 預覽區
+	&__preview {
+		// background: $white url('../images/bg_upload.svg') center center no-repeat;
+		background-size: 72px;
+		border: 1px dashed $border-default;
+		@include radius(10px);
+		text-align: center;
+		margin: 10px 0 0;
+		overflow: hidden;
+		position: relative;
+		@include breakpoint(lg) {
+			background-size: 100px;
+		}
+		&::after {
+			content: '';
+			padding-top: 75%;
+			display: block;
+		}
+	}
+	&__preview-img {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: auto;
+		max-width: 100%;
+		max-height: 100%;
+		transform: translate(-50%, -50%);
+	}
+	&__img-icon {
+		width: 72px;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		transition: opacity .1s;
+		@include breakpoint(lg) {
+			width: 100px;
+		}
+		.form__field-verify & {
+			max-width: 100%;
+		}
+	}
+}
+
+//表單元件
+.form {
+	&__field {
+	}
+	// 檔案上傳圖片
+	&__file-label {
+		position: relative;
+		width: 100%;
+		border: 1px dashed $gray-d;
+
+		&::after {
+			content: '';
+			display: block;
+			padding-bottom: 75%;
+		}
+		&:hover {
+			cursor: pointer;
+
+			.form__file-img {
+				opacity: 0.5;
+			}
+		}
+	}
+
+	&__file-img {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		transition: opacity .1s;
+
+		.form__field-verify & {
+			max-width: 100%;
+		}
+	}
+
+	&__btnbox {
+		display: flex;
+		justify-content: center;
+	}
+}
+// input 驗證icon
+.input-verify-icon {
+	position: absolute;
+	right: 5px;
+	top: 10px;
+	display: none;
+	// 失敗
+	.form__field--error & {
+		color: $warning;
+	}
+	// 成功
+	.form__field--success & {
+		color: $success;
+		display: block;
+	}
+}
+
+
+
+// 行內radio、checkbox
+// ----------------------------------------
+.list-option {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	@include breakpoint(md) {
+		text-align: left;
+	}
+
+	// 兩等份
+	&--2, &--3 {
+		margin: 0 -5px;
+		@include breakpoint(md) {
+			margin: 0;
+		}
+	}
+	&--inline {
+		overflow: hidden;
+	}
+
+	// radio、checkbox
+	&__item {
+		list-style: none;
+		text-align: left;
+
+		@include breakpoint(md) {
+			display: inline-block;
+			vertical-align: top;
+			margin: 0 10px 0 0;
+			width: auto;
+			float: none;
+		}
+		@include breakpoint(lg) {
+			margin-right: 30px;
+		}
+
+		.list-option--inline & {
+			width: auto;
+			margin: 0 20px 0 5px;
+			float: left;
+		}
+		.list-option--2 & {
+			width: calc(50% - 10px);
+			margin: 0 5px;
+			float: left;
+			@include breakpoint(md) {
+				display: inline-block;
+				vertical-align: top;
+				margin: 0 10px 0 0;
+				width: auto;
+				float: none;
+			}
+			@include breakpoint(lg) {
+				margin-right: 30px;
+			}
+		}
+		.list-option--3 & {
+			width: calc(33.333% - 10px);
+			margin: 0 5px;
+			float: left;
+			@include breakpoint(md) {
+				display: inline-block;
+				vertical-align: top;
+				margin: 0 10px 0 0;
+				width: auto;
+				float: none;
+			}
+		}
+
+		&:last-child {
+			@include breakpoint(md) {
+				margin-right: 0;
+			}
+			.list-option--2 &,
+			.list-option--3 & {
+				@include breakpoint(md) {
+					margin-right: 0;
+				}
+			}
+		}
+	}
+}
+
+// 圖片單選複選
+.list-option-img {
+	padding: 0;
+	list-style: none;
+	min-height: 29px;
+	@include breakpoint(lg) {
+		margin: 0 -4px;
+	}
+	// 圖片單選複選-項目
+	&__item {
+		@include size(22px);
+		display: inline-block;
+		margin: 4px;
+
+		@include breakpoint(lg) {
+			@include size(20px);
+		}
+	}
+	// 圖片單選複選-單選複選
+	&__checkbox,
+	&__radio {
+		display: none;
+		position: absolute;
+		padding: 0;
+		margin-left: 0;
+	}
+	// 圖片單選複選-欄位
+	&__label {
+		cursor: pointer;
+		display: block;
+		position: relative;
+		border-radius: 50%;
+		overflow: hidden;
+		margin-bottom: 0;
+		// 圖片單選複選-實心圓、複選-勾選
+		&::after {
+			content: '';
+			position: absolute;
+			display: none;
+			width: 12px;
+			height: 12px;
+			border-radius: 50%;
+			border: 2px solid $white;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+
+			// 圖片單選複選-已勾選
+			.list-option-img__checkbox:checked + &,
+			.list-option-img__radio:checked + & {
+				display: block;
+			}
+		}
+	}
+
+	// 圖片單選複選-圖片
+	&__img {
+		pointer-events: none;
+	}
+}
+
+
+// 仿預設radio、checkbox
+// ----------------------------------------
+.check{
+	padding: 13px 0 14px;
+	position: relative;
+	&__input{
+		display: none;
+		position: absolute;
+		// disabled-input本身
+		&[disabled] {
+			cursor: not-allowed;
+
+		}
+	}
+
+	&__label {
+		cursor: pointer;
+		display: block;
+		position: relative;
+		padding-left: 20px;
+		line-height: 1.4;
+		font-weight: normal;
+		max-width: initial;
+		color: $text-dark;
+		// 外框
+		&::before {
+			@include size(15px);
+			@include border;
+			// @include radius(3px);
+			content: '';
+			display: inline-block;
+			position: absolute;
+			top: 2px;
+			left: 0px;
+			background: $white;
+			animation-duration: 0.4s;
+		}
+		// 單選-實心圓、複選-勾選
+		&::after {
+			content: '';
+			position: absolute;
+			display: none;
+		}
+	}
+	&__input:checked + &__label::after{
+		display: block;
+	}
+	&__input[disabled] + &__label{
+		color: $disabled;
+		cursor: not-allowed;
+	}
+	&__input[disabled] + &__label::before,
+	&__input[disabled] + &__label::after{
+		cursor: not-allowed;
+	}
+	&__input[disabled] + &__label::before{
+		border-color: $disabled;
+	}
+	&-radio{
+		.check__label{
+			// 單選外框-圓
+			&::before {
+				border-radius: 50%;
+			}
+			// 實心圓
+			&::after {
+				background: $text-default;
+				border-radius: 50%;
+				height: 8px;
+				width: 8px;
+				top: 5px;
+				left: 4px;
+
+				// disabled-實心圓
+				.check__input:checked[disabled] + & {
+					background: $disabled;
+				}
+			}
+		}
+	}
+	&-checkbox{
+		.check__label{
+			// 複選-勾
+			&::after {
+				// content: "\e902";
+				// top: 13px;
+				// left: -1px;
+				// color: $text-default;
+				// font-family: 'icomoon';
+				// font-size: 18px;
+				// width: 16px;
+				// height: 16px;
+				// line-height: 16px;
+				// text-align: center;
+				// 用css畫
+				width: 8px;
+				height: 12px;
+				transform: rotate(45deg);
+				border-width: 3px;
+				border-style: solid;
+				border-color: $text-default;
+				border-top: 0;
+				border-left: 0;
+				top: 1px;
+				left: 5px;
+
+
+				// disabled-打勾
+				.check__input:checked[disabled] + & {
+					border-color: $disabled;
+				}
+			}
+		}
+	}
+}
+.radiobox,
+.checkbox {
+	display: none;
+	position: absolute;
+
+	// disabled-input本身
+	&[disabled] {
+		cursor: not-allowed;
+	}
+
+	&__label {
+		cursor: pointer;
+		display: block;
+		position: relative;
+		padding: 10px 0 10px 24px;
+		line-height: 1.5;
+		font-weight: normal;
+		max-width: initial;
+		font-size: 16px;
+		color: $text-dark;
+		// 外框
+		&::before {
+			@include size(15px);
+			@include border;
+			// @include radius(3px);
+			content: '';
+			display: inline-block;
+			position: absolute;
+			top: 14px;
+			left: 0px;
+			background: $white;
+			animation-duration: 0.4s;
+		}
+		// 單選-實心圓、複選-勾選
+		&::after {
+			content: '';
+			position: absolute;
+			display: none;
+		}
+	}
+
+}
+
+// 選項-checked
+.radiobox:checked + .radiobox__label::after,
+.checkbox:checked + .checkbox__label::after {
+	display: block;
+}
+// disabled-文字
+.radiobox[disabled] + .radiobox__label,
+.checkbox[disabled] + .checkbox__label {
+	color: $disabled;
+	cursor: not-allowed;
+}
+// disabled-出現禁止符號
+.radiobox[disabled] + .radiobox__label::before,
+.radiobox[disabled] + .radiobox__label::after
+.checkbox[disabled] + .checkbox__label::before,
+.checkbox[disabled] + .checkbox__label::after {
+	cursor: not-allowed;
+}
+// disabled-圓底框、方底框
+.radiobox[disabled] + .radiobox__label::before,
+.checkbox[disabled] + .checkbox__label::before {
+	border-color: $disabled;
+}
+.radiobox__label {
+	// 單選外框-圓
+	&::before {
+		border-radius: 50%;
+	}
+	// 實心圓
+	&::after {
+		background: $text-default;
+		border-radius: 50%;
+		height: 8px;
+		width: 8px;
+		top: 17px;
+		left: 4px;
+
+		// disabled-實心圓
+		.radiobox:checked[disabled] + & {
+			background: $disabled;
+		}
+	}
+}
+.checkbox__label {
+	// 複選-勾
+	&::after {
+		content: "\e902";
+		top: 13px;
+		left: -1px;
+		color: $text-default;
+		font-family: 'icomoon';
+		font-size: 18px;
+		width: 16px;
+		height: 16px;
+		line-height: 16px;
+		text-align: center;
+
+		// disabled-打勾
+		.checkbox:checked[disabled] + & {
+			border-color: $disabled;
+		}
+	}
+}
+.radiobtn {
+	display: flex;
+	justify-content: center;
+	margin: 0 -4px;
+	@include breakpoint(lg) {
+		margin: 0 -7px;
+	}
+	&--3{
+		@include breakpoint(lg) {
+			// margin: 0 -7px;
+		}
+	}
+	&--4{
+		@include breakpoint(lg) {
+			// margin: 0 -7px;
+		}
+	}
+	&__item{
+		margin: 0 4px;
+		flex-grow: 1;
+		flex-basis: 110px;
+		@include breakpoint(lg) {
+			margin: 0 7px;
+			flex-grow: 0;
+		}
+		.radiobtn--4 &{
+			// width: calc(25% - 8px);
+			@include breakpoint(lg) {
+			}
+		}
+		.radiobtn--3 &{
+			// width: calc(100% / 3 - 8px);
+			@include breakpoint(lg) {
+			}
+		}
+	}
+	&__input{
+		display: none;
+		position: absolute;
+		&[disabled] {
+			cursor: not-allowed;
+		}
+	}
+	&__label {
+		cursor: pointer;
+		display: block;
+		position: relative;
+		color: $text-dark;
+		border: 1px solid $primary;
+		background: $white;
+		padding: 8px 10px;
+		text-decoration: none;
+
+		// max-width: 110px;
+		text-align: center;
+		line-height: 1.5;
+		font-weight: normal;
+		// max-width: initial;
+		font-size: 14px;
+		@include radius(30px);
+		@include breakpoint(lg) {
+			// min-width: 110px;
+			padding: 8px 16px;
+		}
+		@include active-hover{
+			background: $gray-e5;
+			border-color: $primary;
+			color: $text-dark;
+		}
+	}
+	&__label-icon{
+		margin-right: 5px;
+		color: $orange-darker;
+	}
+
+}
+.radiobtn__item--filter .radiobtn__label{
+	padding: 8px 0 9px;
+}
+// 選項-checked
+.radiobtn__input:checked + .radiobtn__label,
+.radiobtn__item--current .radiobtn__label{
+	border-color: $primary;
+	color: $text-default-hover;
+	background: $white;
+}
+// disabled-文字
+.radiobtn__input[disabled] + .radiobtn__label {
+	color: $disabled;
+	cursor: not-allowed;
+}
