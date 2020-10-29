@@ -1,1 +1,32 @@
+body {
+  overflow: hidden; }
 
+@keyframes fade-in {
+  0% {
+    opacity: 0.2;
+    transform: scale(1.2); }
+  100% {
+    opacity: 1;
+    transform: scale(1); } }
+.wrap {
+  position: relative; }
+  .wrap__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    transform-origin: center;
+    background: url("../images/events/elements/bg-m.jpg") center/cover;
+    animation: fade-in 3s forwards; }
+    @media (min-width: 1024px) {
+      .wrap__bg {
+        background-image: url("../images/events/elements/bg.jpg"); } }
+
+.book {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+/*# sourceMappingURL=pg_index.css.map */

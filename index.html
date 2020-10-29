@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
 	<meta charset="UTF-8" />
-	<title>網頁標題</title>
+	<title>首頁 - 國立臺灣交響樂團解謎互動遊戲</title>
 	<meta name="keywords" content="{關鍵字}" />
 	<meta name="description" content="{描述}" >
 	<!-- facebook meta start -->
@@ -42,7 +42,21 @@
 </head>
 <body>
 	<div class="wrap">
+		<div class="wrap__bg"></div>
 		<div class="wrap__inner">
+			<div class="row">
+				<div class="col-12 col-lg-6">
+					<div class="book">
+						<picture>
+							<source class="banner__img" media="(min-width: 1024px)" srcset="style/images/events/elements/cover.png">
+							<source class="banner__img" media="(min-width: 768px)" srcset="style/images/events/elements/cover-m.png">
+							<source class="banner__img" media="(max-width: 767px)" srcset="style/images/events/elements/cover-m.png">
+							<img class="book__img" src="style/images/events/elements/cover.png" alt="日記本">
+						</picture>
+					</div>
+				</div>
+				<div class="col-12 col-lg-6"></div>
+			</div>
 		</div>
 	</div>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
