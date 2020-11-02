@@ -49,24 +49,135 @@
 					<div class="book">
 						<picture>
 							<source class="banner__img" media="(min-width: 1024px)" srcset="style/images/events/elements/cover.png">
-							<source class="banner__img" media="(min-width: 768px)" srcset="style/images/events/elements/cover-m.png">
+							<source class="banner__img" media="(min-width: 768px)" srcset="style/images/events/elements/cover.png">
 							<source class="banner__img" media="(max-width: 767px)" srcset="style/images/events/elements/cover-m.png">
 							<img class="book__img" src="style/images/events/elements/cover.png" alt="日記本">
 						</picture>
 					</div>
 				</div>
-				<div class="col-12 col-lg-6"></div>
+				<div class="col-12 col-lg-6">
+                    <div class="dialog-outer">
+                        <div class="dialog">
+                            <div class="dialog__inner">
+                                <div class="dialog__text">2000年，一位渴望走出自己的音樂風格的年輕音樂人Leon，正用他的熱情在挑戰世界</div>
+                                <div class="dialog__text">自小對音樂有極高天賦的他，在求學期間就已經累積了大量的創作作品</div>
+                                <div class="dialog__text">無奈伯樂難尋，他的音樂並沒有受到社會的青睞</div>
+                                <div class="dialog__text">今年剛滿22歲的Leon，沒有穩定的收入只能勉強的撐在溫飽邊緣</div>
+                                <div class="dialog__text">貧困的現實串聯極大的心理壓力動搖了他的意志：「我是不是該現實一點...放棄音樂呢？」</div>
+                                <div class="dialog__text">這天，Leon和朋友們在路上遊走，路過一戶人家</div>
+                                <div class="dialog__text">門口堆著即將淘汰的破舊古物，而這堆垃圾中有一本殘破不堪的日記本莫名吸引他的目光 ......</div>
+                            </div>
+                        </div>
+						<a href="" class="btn dialog-btn">
+							<img src="style/images/events/elements/p1-btn.png" alt="Discover">
+						</a>
+					</div>
+                </div>
 			</div>
 		</div>
 	</div>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 	<script src="style/js/scroll_animate.js"></script>
+	<script src="style/js/anime.min.js"></script>
+	<script src="style/js/lodash.min.js"></script>
 	<!-- 程式說明 -上線前請移除 Start-->
 	<script src="style/js/w3c_include/dmW3.js"></script>
 	<script>
 		w3.includeHTML();
 	</script>
 	<script>
+		var index = 0,
+		 	item_old = null,
+		 	item_new = null,
+			createTimer = null,
+			deleteTimer = null,
+			animation = null;
+		$(function(){
+			setTimeout(function() {
+				anime.timeline()
+					.add({
+						targets: ".book",
+						opacity: [0, 1],
+						translateY: [30, 0],
+						duration: 1000,
+						easing: "easeInSine"
+					})
+					.add({
+						targets: ".dialog",
+						opacity: [0, 1],
+						duration: 1000,
+						easing: "easeInSine",
+						complete: function(){
+							setTimeout(function () {
+								animateText();
+								countDown();
+								window.addEventListener("wheel", _.debounce((event)=>animeChange(event), 200));
+							}, 600);
+						}
+					}, '-=200')
+					.add({
+						targets: ".dialog-btn",
+						opacity: [0, 1],
+						duration: 500,
+						easing: "easeInSine",
+					}, '-=200');
+			}, 1000);
+		});
+
+		function animeChange(event) {
+			if (event.deltaY < 0) {
+				if (index-1 < 0) {
+					return false;
+				} else {
+					item_new.css("display", "none");
+					item_old.css("display", "none");
+					index--;
+				}
+			} else {
+				if (index+1 >= $(".dialog__text").length) {
+					return false;
+				} else {
+					item_new.css("display", "none");
+					item_old.css("display", "none");
+					index++;
+				}
+			}
+			animation.seek(animation.duration)
+			clearTimeout(createTimer);
+			clearTimeout(deleteTimer);
+			animateText();
+			countDown();
+		}
+		function countDown() {
+			if (index < $(".dialog__text").length) {
+				createTimer = setTimeout(function () {
+					index++;
+					animateText();
+					countDown();
+				}, 3500);
+			}
+		}
+		function animateText() {
+			item_new = $(".dialog__text").eq(index);
+			animation = anime({
+				targets: item_new[0],
+				opacity: [0, 1],
+				translateY: [5, 0],
+				duration: 250,
+				easing: "easeOutInSine",
+				begin: function(anim) {
+					item_new.css("display", "block")
+				},
+				complete: function(anim) {
+					if (index < $(".dialog__text").length-1) {
+						item_old = $(".dialog__text").eq(index);
+						deleteTimer = setTimeout(function () {
+							item_old.css("display", "none")
+						}, 3250);
+					}
+				}
+			});
+		}
 	</script>
 	<!-- 程式說明 -上線前請移除 End-->
 </body>

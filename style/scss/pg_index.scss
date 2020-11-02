@@ -41,4 +41,97 @@ body {
 .book {
 	min-height: 100vh;
 	@include flex-center();
+	position: relative;
+	z-index: 1;
+	opacity: 0;
+
+	@include breakpoint(lg, max) {
+		align-items: flex-start;
+		padding-top: 25%;
+
+		@include breakpoint(md) {
+			padding-top: 10%;
+			width: 45%;
+			margin: 0 auto;
+		}
+	}
+}
+
+.dialog-outer {
+	height: 100%;
+	@include flex-center();
+	flex-direction: column;
+
+	@include breakpoint(lg, max) {
+		margin-top: -20vw;
+
+		@include breakpoint(md) {
+			margin-top: 0;
+		}
+	}
+
+	.dialog-btn {
+		opacity: 0;
+		width: 230px;
+		padding: 0;
+		margin-top: 100px;
+		transition: all 0.4s;
+
+		&:hover {
+			transform: scale(1.05);
+		}
+		@include breakpoint(lg, max) {
+			z-index: 1;
+			margin-top: 80px;
+
+			 @include breakpoint(md) {
+			 }
+		 }
+	}
+}
+.dialog {
+	opacity: 0;
+	position: relative;
+	height: 120px;
+	width: 400px;
+
+	@include breakpoint(lg, max) {
+		margin-top: -50vw;
+		z-index: 1;
+		width: 275px;
+
+		@include breakpoint(md) {
+			width: 55%;
+		}
+	}
+
+	&__inner {
+		overflow: hidden;
+		height: 100%;
+		font-size: 16px;
+		line-height: 26px;
+		@include flex-center();
+		flex-wrap: wrap;
+	}
+
+	&::before {
+		position: absolute;
+		top: -50px;
+		left: 0;
+		content: "";
+		width: 100%;
+		height: 220px;
+		background: rgba($white, 0.8);
+		filter: blur(10px);
+		transform: scaleX(1.25);
+		z-index: 0;
+	}
+	&__text {
+		display: none;
+		position: relative;
+		z-index: 1;
+		text-align: center;
+		letter-spacing: 0.7px;
+		font-weight: bold;
+	}
 }
