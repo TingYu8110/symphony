@@ -43,14 +43,37 @@
 <body>
 	<div class="wrap">
 		<div class="wrap__bg"></div>
+		<!-- 選單 -->
+		<div class="menu">
+			<div class="menu__inner">
+				<a class="menu__trigger" href="#" title="選單">
+					<img src="style/images/events/elements/menu-icon.png" alt="選單">
+				</a>
+				<ul class="menu__list">
+					<li class="menu__item">
+						<a href="room.html" class="menu__link">Room</a>
+					</li>
+					<li class="menu__item">
+						<a href="story.html" class="menu__link">Story</a>
+					</li>
+					<li class="menu__item">
+						<a href="instruction.html" class="menu__link">Instruction</a>
+					</li>
+					<li class="menu__item">
+						<a href="contact.html" class="menu__link">Contact</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
 		<div class="wrap__inner">
 			<div class="row">
 				<div class="col-12 col-lg-6">
 					<div class="book">
 						<picture>
-							<source class="banner__img" media="(min-width: 1024px)" srcset="style/images/events/elements/cover.png">
-							<source class="banner__img" media="(min-width: 768px)" srcset="style/images/events/elements/cover.png">
-							<source class="banner__img" media="(max-width: 767px)" srcset="style/images/events/elements/cover-m.png">
+							<source media="(min-width: 1024px)" srcset="style/images/events/elements/cover.png">
+							<source media="(min-width: 768px)" srcset="style/images/events/elements/cover.png">
+							<source media="(max-width: 767px)" srcset="style/images/events/elements/cover-m.png">
 							<img class="book__img" src="style/images/events/elements/cover.png" alt="日記本">
 						</picture>
 					</div>
@@ -68,7 +91,7 @@
                                 <div class="dialog__text">門口堆著即將淘汰的破舊古物，而這堆垃圾中有一本殘破不堪的日記本莫名吸引他的目光 ......</div>
                             </div>
                         </div>
-						<a href="" class="btn dialog-btn">
+						<a href="room.html" class="btn dialog-btn" title="Discover">
 							<img src="style/images/events/elements/p1-btn.png" alt="Discover">
 						</a>
 					</div>
@@ -80,11 +103,6 @@
 	<script src="style/js/scroll_animate.js"></script>
 	<script src="style/js/anime.min.js"></script>
 	<script src="style/js/lodash.min.js"></script>
-	<!-- 程式說明 -上線前請移除 Start-->
-	<script src="style/js/w3c_include/dmW3.js"></script>
-	<script>
-		w3.includeHTML();
-	</script>
 	<script>
 		var index = 0,
 		 	item_old = null,
@@ -122,6 +140,11 @@
 						easing: "easeInSine",
 					}, '-=200');
 			}, 1000);
+		})
+		.on("click", ".menu__trigger", function(event){
+			event.preventDefault();
+			var menu  = $(".menu");
+			menu.toggleClass("menu--active")
 		});
 
 		function animeChange(event) {
@@ -164,7 +187,7 @@
 				opacity: [0, 1],
 				translateY: [5, 0],
 				duration: 250,
-				easing: "easeOutInSine",
+				easing: "linear",
 				begin: function(anim) {
 					item_new.css("display", "block")
 				},
