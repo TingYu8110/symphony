@@ -149,7 +149,7 @@
 			countDown();
 		}
 		function countDown() {
-			if (index < $(".dialog__text").length) {
+			if (index < $(".dialog__text").length-1) {
 				createTimer = setTimeout(function () {
 					index++;
 					animateText();
