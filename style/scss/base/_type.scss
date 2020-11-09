@@ -78,6 +78,12 @@ a {
 .text {
 	font-size: 14px;
 }
+// 不顯示的文字
+.text-indent {
+	position: absolute;
+	text-indent: -9999px;
+}
+.text-indent
 // 粗體
 .text-bold {
 	font-weight: bold;

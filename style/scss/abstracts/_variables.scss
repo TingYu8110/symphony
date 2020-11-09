@@ -31,7 +31,7 @@ $orange-text: 	 #F09400 !default;
 $pink: #ff5ca7 !default;
 
 // 色彩系統
-$primary:       $orange !default;
+$primary:       #9e7800 !default;
 $secondary:     $red !default;
 $third:     	$pink !default;
 $success:       #0cac00 !default;
@@ -128,6 +128,10 @@ $btn_colors: map-merge((
 		border-color: #bbb,
 		color-hover: $primary,
 		border-hover: $blue-lighter,
+	),
+	menu: (
+		color: $primary,
+		color-hover: $primary,
 	),
 ), $btn_colors);
 
