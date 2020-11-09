@@ -1,0 +1,88 @@
+@charset "utf-8";
+
+@import
+	'abstracts/variables',
+	'abstracts/function',
+    'abstracts/mixins';
+
+body {
+	@include breakpoint(lg, max) {
+		overflow: auto;
+	}
+}
+
+.wrap {
+	position: relative;
+
+	@include breakpoint(lg, max) {
+		overflow: visible;
+	}
+
+	&__bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		transform-origin: center;
+
+		background: url("../images/events/elements/p3-bg.jpg") center / cover;
+		//animation: fade-in 3s forwards;
+
+		@include breakpoint(lg, max) {
+			position: fixed;
+		}
+	}
+	&__inner {
+		display: flex;
+		align-items: center;
+		height: 100vh;
+		max-width: 1240px;
+
+		@include breakpoint(lg, max) {
+			flex-wrap: wrap;
+			padding-top: 178px;
+			height: auto;
+		}
+	}
+}
+
+.paper {
+	&__mobile {
+		@include breakpoint(lg) {
+			display: none;
+		}
+	}
+	&__intro {
+		@include breakpoint(lg, max) {
+			margin-bottom: -25vw;
+		}
+	}
+	&__web {
+		@include breakpoint(lg, max) {
+			display: none;
+		}
+	}
+	&__btn-outer {
+		width: 232px;
+		position: absolute;
+		top: 72.15%;
+		left: calc(50% - 116px);
+
+		@include breakpoint(lg, max) {
+			position: static;
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			margin-bottom: 30px;
+		}
+	}
+	&__btn {
+		width: 232px;
+		transition: transform 0.4s;
+
+		&:hover {
+			transform: scale(1.05) !important;
+		}
+	}
+}

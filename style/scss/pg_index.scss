@@ -112,6 +112,7 @@
 		filter: blur(10px);
 		transform: scaleX(1.25);
 		z-index: 0;
+		animation: bluring-big 1s infinite alternate ease-in-out;
 	}
 	&__text {
 		display: none;

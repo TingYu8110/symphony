@@ -1,0 +1,130 @@
+@charset "utf-8";
+
+@import
+	'abstracts/variables',
+	'abstracts/function',
+    'abstracts/mixins';
+
+body {
+	@include breakpoint(lg, max) {
+		overflow: auto;
+	}
+}
+
+.wrap {
+	position: relative;
+
+	@include breakpoint(lg, max) {
+		overflow: visible;
+	}
+
+	&__bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		transform-origin: center;
+
+		background: url("../images/events/elements/bg.jpg") center / cover;
+		//animation: fade-in 3s forwards;
+
+		@include breakpoint(lg, max) {
+			position: fixed;
+		}
+	}
+	&__inner {
+		display: flex;
+		align-items: center;
+		height: 100vh;
+
+		@include breakpoint(lg, max) {
+			flex-wrap: wrap;
+			padding-top: 178px;
+			height: auto;
+		}
+	}
+}
+
+.book {
+	position: relative;
+	color: #fff;
+	text-align: center;
+
+	&__bg {
+		@include breakpoint(lg, max) {
+			max-width: 500px;
+		}
+	}
+
+	&__inner {
+		z-index: 1;
+		position: absolute;
+		top: 10%;
+		left: 16%;
+		width: 70%;
+		height: 80%;
+	}
+	&__main {
+		height: calc(100% - 65px);
+		@include flex-center();
+	}
+	&__title {
+		font-size: 24px;
+		line-height: 34px;
+		margin-bottom: 30px;
+	}
+	&__desc {
+		line-height: 1.63;
+		margin-bottom: 40px;
+	}
+	&__footer {
+		height: 65px;
+		@include flex-center();
+		@include breakpoint(lg, max) {
+			display: block;
+		}
+
+		&-label {
+			display: inline-block;
+
+			@include breakpoint(lg, max) {
+				display: block;
+				margin-bottom: 10px;
+			}
+		}
+		&-logo {
+			display: inline-block;
+			max-width: 270px;
+
+			@include breakpoint(lg, max) {
+				display: block;
+				margin: 0 auto;
+			}
+		}
+	}
+}
+
+.social-media {
+	display: flex;
+	justify-content: space-between;
+
+	&__item {
+		flex: 1 1 40px;
+		max-width: 40px;
+		@include flex-center();
+	}
+
+	&__link {
+		padding: 5px;
+
+		img {
+			transition: all .4s;
+		}
+		&:hover {
+			img {
+				transform: scale(1.1);
+			}
+		}
+	}
+}

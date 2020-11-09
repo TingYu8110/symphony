@@ -1,0 +1,59 @@
+@media (max-width: 1023px) {
+  body {
+    overflow: auto; } }
+
+.wrap {
+  position: relative; }
+  @media (max-width: 1023px) {
+    .wrap {
+      overflow: visible; } }
+  .wrap__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    transform-origin: center;
+    background: url("../images/events/elements/p3-bg.jpg") center/cover; }
+    @media (max-width: 1023px) {
+      .wrap__bg {
+        position: fixed; } }
+  .wrap__inner {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    max-width: 1240px; }
+    @media (max-width: 1023px) {
+      .wrap__inner {
+        flex-wrap: wrap;
+        padding-top: 178px;
+        height: auto; } }
+
+@media (min-width: 1024px) {
+  .paper__mobile {
+    display: none; } }
+@media (max-width: 1023px) {
+  .paper__intro {
+    margin-bottom: -25vw; } }
+@media (max-width: 1023px) {
+  .paper__web {
+    display: none; } }
+.paper__btn-outer {
+  width: 232px;
+  position: absolute;
+  top: 72.15%;
+  left: calc(50% - 116px); }
+  @media (max-width: 1023px) {
+    .paper__btn-outer {
+      position: static;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px; } }
+.paper__btn {
+  width: 232px;
+  transition: transform 0.4s; }
+  .paper__btn:hover {
+    transform: scale(1.05) !important; }
+
+/*# sourceMappingURL=pg_instruction.css.map */

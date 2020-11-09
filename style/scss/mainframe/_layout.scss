@@ -107,6 +107,12 @@ body {
 	position: absolute;
 	top: 30px;
 	left: 40px;
+	z-index: 10;
+
+	@include breakpoint(lg, max) {
+		top: 20px;
+		left: calc(50% - 110px);
+	}
 
 	&__link {
 		width: 220px;
@@ -128,14 +134,40 @@ body {
 	top: 30px;
 	right: 30px;
 	z-index: 10;
+	pointer-events: none;
+
+	@include breakpoint(lg, max) {
+		position: fixed;
+		top: auto;
+		bottom: 0;
+		left: auto;
+		right: 0;
+		padding: 20px;
+		width: 100%;
+		transition: all .4s;
+
+		&--active {
+			background: #fff;
+		}
+	}
 
 	&__inner {
+		@include breakpoint(lg, max) {
+			display: flex;
+			flex-flow: column-reverse;
+		}
 	}
 	&__trigger {
 		display: block;
 		width: 60px;
 		margin-bottom: 16px;
 		margin-left: auto;
+		pointer-events: auto;
+
+		@include breakpoint(lg, max) {
+			margin-top: 16px;
+			margin-bottom: 0;
+		}
 
 		.menu--active & {
 			animation: shake .4s forwards;
@@ -145,6 +177,11 @@ body {
 		transition: all .4s;
 		transform: scaleY(0);
 		transform-origin: top;
+		margin-bottom: 0;
+
+		@include breakpoint(lg, max) {
+			transform-origin: bottom;
+		}
 
 		.menu--active & {
 			transform: scaleY(1);
@@ -162,6 +199,7 @@ body {
 		font-size: 24px;
 		line-height: 34px;
 		text-decoration: none;
+		pointer-events: auto;
 
 		@include active-hover {
 			color: $primary;

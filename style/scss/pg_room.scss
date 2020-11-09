@@ -68,6 +68,7 @@
 
 		@include breakpoint(lg, max) {
 			height: 100vh;
+			max-height: 667px;
 		}
 
 		&::after {
@@ -90,6 +91,10 @@
 	display: flex;
 	opacity: 0;
 
+	@include breakpoint(lg, max) {
+		top: 182px;
+	}
+
 	&__bg {
 		position: absolute;
 		top: 0;
@@ -99,6 +104,16 @@
 		opacity: 0.8;
 		filter: blur(5px);
 		background-color: #ffffff;
+		animation: bluring 0.75s infinite alternate ease-in-out;
+
+		@include breakpoint(lg, max) {
+			width: 90vw;
+			left: calc(50% - 45vw);
+
+			@include breakpoint(md) {
+				animation: bluring-md 0.75s infinite alternate ease-in-out;
+			}
+		}
 	}
 	&__string {
 		position: relative;
@@ -133,8 +148,20 @@
 .diary {
 	position: absolute;
 	top: 66.11%;
-	left: 8.26%;
+	left: 7.26%;
 	width: 11.04%;
+
+	@include breakpoint(lg, max) {
+		width: 160px;
+		top: 300px;
+		left: calc(50% - 80px);
+
+		@include breakpoint(375) {
+			width: 194px;
+			top: 310px;
+			left: calc(50% - 97px);
+		}
+	}
 
 	&__text {
 		width: 128px;
@@ -152,6 +179,18 @@
 	left: 41.111%;
 	width: 7.56%;
 
+	@include breakpoint(lg, max) {
+		width: 90px;
+		top: 420px;
+		left: calc(50% - 45px);
+
+		@include breakpoint(375) {
+			width: 109px;
+			top: 440px;
+			left: calc(50% - 54.5px);
+		}
+	}
+
 	&__text {
 		width: 128px;
 		margin-bottom: 16px;
@@ -167,6 +206,18 @@
 	top: 77.25%;
 	left: 79.375%;
 	width: 10.97%;
+
+	@include breakpoint(lg, max) {
+		width: 130px;
+		top: 550px;
+		left: calc(50% - 65px);
+
+		@include breakpoint(375) {
+			width: 158px;
+			top: 590px;
+			left: calc(50% - 79px);
+		}
+	}
 
 	&__text {
 		width: 128px;

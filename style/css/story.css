@@ -1,0 +1,16 @@
+.wrap {
+  position: relative; }
+  .wrap__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    transform-origin: center;
+    background: url("../images/events/elements/bg-m.jpg") center/cover;
+    animation: fade-in 3s forwards; }
+    @media (min-width: 1024px) {
+      .wrap__bg {
+        background-image: url("../images/events/elements/bg.jpg"); } }
+
+/*# sourceMappingURL=story.css.map */

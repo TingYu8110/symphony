@@ -34,9 +34,9 @@
 	<link rel="shortcut icon" href="style/images/favicon.ico">
 	<!-- css link file start -->
 	<!-- CSS Link File Start -->
-	<link media="screen" rel="stylesheet" href="style/css/main.css?t=20201109v1" />
+	<link media="screen" rel="stylesheet" href="style/css/main.css?t=20201109v2" />
 	<!-- CSS 模組樣式  -->
-	<link media="screen" rel="stylesheet" href="style/css/pg_room.css?t=20201109v1" />
+	<link media="screen" rel="stylesheet" href="style/css/pg_room.css?t=20201109v2" />
 	<!-- CSS page樣式  -->
 	<!-- CSS Link File End -->
 </head>
@@ -83,7 +83,7 @@
 
 				<!-- 日記本 -->
 				<div class="diary">
-					<a class="item__link" href="" title="日記本">
+					<a class="item__link" href="story.html" title="日記本">
 						<img class="item__link-title diary__text" src="style/images/events/elements/GL-diary.png" alt="日記本">
 						<picture>
 							<source media="(min-width: 1024px)" srcset="style/images/events/elements/diary.png">
@@ -94,7 +94,7 @@
 
 				<!-- 信封 -->
 				<div class="envelope">
-					<a class="item__link" href="" title="信封">
+					<a class="item__link" href="instruction.html" title="信封">
 						<img class="item__link-title envelope__text" src="style/images/events/elements/GL-envelope.png" alt="信封">
 						<picture>
 							<source media="(min-width: 1024px)" srcset="style/images/events/elements/envelope.png">
@@ -105,7 +105,7 @@
 
 				<!-- 樂譜 -->
 				<div class="script">
-					<a class="item__link" href="" title="樂譜">
+					<a class="item__link" href="contact.html" title="樂譜">
 						<img class="item__link-title script__text" src="style/images/events/elements/GL-script.png" alt="樂譜">
 						<picture>
 							<source media="(min-width: 1024px)" srcset="style/images/events/elements/script.png">
@@ -145,7 +145,7 @@
 						duration: 1000,
 						easing: "easeOutQuad",
 					}, '-=200');
-			}, 1000);
+			}, 1500);
 		})
 		.on("click", ".menu__trigger", function(event){
 			event.preventDefault();
@@ -156,7 +156,11 @@
 		// 計算頁面高度
 		function calHeight() {
 			var wrap = $(".wrap, .wrap__bg, .wrap__bg-deco, .bgwrap__inner");
-			wrap.height(window.innerHeight);
+			if ($(window).width() > 1023) {
+				wrap.height("");
+			} else {
+				wrap.height(window.innerHeight);
+			}
 		}
 	</script>
 	<!-- 程式說明 -上線前請移除 End-->

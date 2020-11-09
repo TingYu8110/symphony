@@ -33,3 +33,33 @@
 		transform: rotate(0);
 	}
 }
+@keyframes bluring {
+	0% {
+		filter: blur(5px);
+		transform: scale(1);
+	}
+	100% {
+		filter: blur(6px);
+		transform: scale(1.02);
+	}
+}
+@keyframes bluring-md {
+	0% {
+		filter: blur(5px);
+		transform: scaleY(1) scaleX(0.55);
+	}
+	100% {
+		filter: blur(6px);
+		transform: scaleY(1.02) scaleX(0.57);
+	}
+}
+@keyframes bluring-big {
+	0% {
+		filter: blur(5px);
+		transform: scale(1.25);
+	}
+	100% {
+		filter: blur(6px);
+		transform: scale(1.27);
+	}
+}
