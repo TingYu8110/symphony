@@ -14203,6 +14203,7 @@ body.preload * {
   position: absolute;
   top: 30px;
   right: 30px;
+  z-index: 10;
 }
 .menu__trigger {
   display: block;

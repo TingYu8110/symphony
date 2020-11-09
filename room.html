@@ -34,9 +34,9 @@
 	<link rel="shortcut icon" href="style/images/favicon.ico">
 	<!-- css link file start -->
 	<!-- CSS Link File Start -->
-	<link media="screen" rel="stylesheet" href="style/css/main.css" />
+	<link media="screen" rel="stylesheet" href="style/css/main.css?t=20201109v1" />
 	<!-- CSS 模組樣式  -->
-	<link media="screen" rel="stylesheet" href="style/css/pg_room.css?t=20201021" />
+	<link media="screen" rel="stylesheet" href="style/css/pg_room.css?t=20201109v1" />
 	<!-- CSS page樣式  -->
 	<!-- CSS Link File End -->
 </head>
@@ -122,6 +122,10 @@
 	<script src="style/js/lodash.min.js"></script>
 	<script>
 		$(function(){
+			// 手機板計算高度避免畫面可以scroll(手機板網址列的關係)
+			calHeight();
+			window.addEventListener("resize", calHeight);
+
 			setTimeout(function() {
 				anime.timeline()
 					.add({
@@ -148,6 +152,12 @@
 			var menu  = $(".menu");
 			menu.toggleClass("menu--active")
 		});
+
+		// 計算頁面高度
+		function calHeight() {
+			var wrap = $(".wrap, .wrap__bg, .wrap__bg-deco, .bgwrap__inner");
+			wrap.height(window.innerHeight);
+		}
 	</script>
 	<!-- 程式說明 -上線前請移除 End-->
 </body>
