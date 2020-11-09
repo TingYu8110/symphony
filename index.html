@@ -132,13 +132,13 @@
 								window.addEventListener("wheel", _.debounce((event)=>animeChange(event), 200));
 							}, 600);
 						}
-					}, '-=200')
+					}, '-=1000')
 					.add({
 						targets: ".dialog-btn",
 						opacity: [0, 1],
 						duration: 500,
 						easing: "easeInSine",
-					}, '-=200');
+					}, '-=600');
 			}, 1000);
 		})
 		.on("click", ".menu__trigger", function(event){
@@ -181,6 +181,7 @@
 			}
 		}
 		function animateText() {
+			if (item_old) item_old.css("display", "none");
 			item_new = $(".dialog__text").eq(index);
 			animation = anime({
 				targets: item_new[0],
@@ -194,9 +195,6 @@
 				complete: function(anim) {
 					if (index < $(".dialog__text").length-1) {
 						item_old = $(".dialog__text").eq(index);
-						deleteTimer = setTimeout(function () {
-							item_old.css("display", "none")
-						}, 3250);
 					}
 				}
 			});

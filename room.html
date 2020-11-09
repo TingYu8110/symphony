@@ -130,7 +130,10 @@
 						translateY: [-15, 0],
 						delay: anime.stagger(250),
 						duration: 1000,
-						easing: "easeOutQuad"
+						easing: "easeOutQuad",
+						complete: function(anim){
+							$(".item__link").css({transform: ""})
+						}
 					})
 					.add({
 						targets: ".subtitle",
