@@ -37,7 +37,7 @@ body {
 		display: flex;
 		align-items: center;
 		height: 100vh;
-		max-width: 1240px;
+		max-width: 1440px;
 
 		@include breakpoint(lg, max) {
 			flex-wrap: wrap;
