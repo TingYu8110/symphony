@@ -36,6 +36,7 @@
 .dialog {
   color: #34302f; }
   .dialog__text {
+    font-weight: bold;
     text-align: center;
     line-height: 1.63;
     display: none; }

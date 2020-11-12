@@ -59,6 +59,7 @@ body {
 .dialog {
 	color: #34302f;
 	&__text {
+		font-weight: bold;
 		text-align: center;
 		line-height: 1.63;
 		display: none;
