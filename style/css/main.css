@@ -645,10 +645,10 @@ body {
 @keyframes bluring-big {
   0% {
     filter: blur(5px);
-    transform: scale(1.25); }
+    transform: scaleX(1.25) scaleY(1); }
   100% {
     filter: blur(6px);
-    transform: scale(1.27); } }
+    transform: scaleX(1.27) scaleY(1); } }
 /*!
  * Bootstrap Grid v5.0.0-alpha1 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
