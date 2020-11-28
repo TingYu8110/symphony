@@ -29,6 +29,9 @@
         flex-wrap: wrap;
         padding-top: 178px;
         height: auto; } }
+    @media (min-width: 1440px) {
+      .wrap__inner {
+        overflow: visible; } }
 
 @media (min-width: 1024px) {
   .paper__mobile {
