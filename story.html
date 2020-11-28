@@ -41,7 +41,7 @@
 	<!-- CSS Link File End -->
 </head>
 <body>
-	<div class="wrap">
+	<div class="wrap wrap--story">
 		<div class="wrap__bg"></div>
 		<div class="logo">
 			<a class="logo__link" href="index.html" title="國立臺灣交響樂團解謎互動遊戲">
@@ -79,23 +79,22 @@
 				</picture>
 			</div>
 			<div class="row">
-				<div class="col-12 dialog">
-					<div class="dialog__inner">
-						<div class="dialog__text">我在哪裡...我是誰...</div>
-						<div class="dialog__text">全都想不起來</div>
-						<div class="dialog__text">誰可以幫助我......</div>
-					</div>
-				</div>
+<!--				<div class="col-12 dialog">-->
+<!--					<div class="dialog__inner">-->
+<!--						<div class="dialog__text">我在哪裡...我是誰...</div>-->
+<!--						<div class="dialog__text">全都想不起來</div>-->
+<!--						<div class="dialog__text">誰可以幫助我......</div>-->
+<!--					</div>-->
+<!--				</div>-->
 				<div class="col-12 col-lg-6 sheet">
 					<div class="sheet__bg">
-						<div class="text-indent">這本日記好熟悉...這是...我的日記？</div>
-						<div class="text-indent">但日記內容好像有不少殘缺，</div>
-						<div class="text-indent">可以請你們幫我「修復日記」嗎？</div>
-						<div class="text-indent">從第一頁開始，</div>
-						<div class="text-indent">裡面寫好像是一些音樂家的故事...</div>
-						<div class="text-indent">難道我是個音樂家？</div>
-						<div class="text-indent">如果真的能將日記修復好，</div>
-						<div class="text-indent">或許我能想起一些事情...</div>
+						<div class="text-indent">嘿，你們看！這好像是某個人的古老日記本呢，</div>
+						<div class="text-indent">我也不知道為什麼剛剛會伸手去拿，就莫名很想看看裡面的內容</div>
+						<div class="text-indent">你們不會好奇這個人過著怎樣的生活嗎？</div>
+						<div class="text-indent">不過不管怎麼樣一定都比我這個失敗音樂家好多了吧</div>
+						<div class="text-indent">活到現在什麼都沒得到，只剩你們這些朋友能夠作伴</div>
+						<div class="text-indent">自以為擅長音樂結果根本就是個笑話，還是想想怎麼賺大錢比較實際吧</div>
+						<div class="text-indent">，我怎麼會活得這麼失敗阿...</div>
 						<picture>
 							<source media="(min-width: 1024px)" srcset="style/images/events/elements/p3-paper.png">
 							<img src="style/images/events/elements/p3-paper-m.png" alt="書頁">
@@ -119,10 +118,9 @@
 			createTimer = null,
 			animation = null;
 		$(function(){
-			setTimeout(function() {
-				animateText();
-				countDown();
-			}, 800);
+			toStory();
+			// setTimeout(function() {
+			// }, 800);
 		})
 		.on("click", ".menu__trigger", function(event){
 			event.preventDefault();
@@ -165,21 +163,21 @@
 		function toStory() {
 			$(".wrap").addClass("wrap--animation-less");
 			anime.timeline({})
-				.add({
-					targets: ".wrap__bg",
-					opacity: [1, 0],
-					duration: 1500,
-					easing: "linear",
-					complete: function(anim) {
-						$(".wrap").addClass("wrap--story");
-					}
-				})
-				.add({
-					targets: ".dialog",
-					opacity: [1, 0],
-					duration: 1500,
-					easing: "linear"
-				}, "-=1500")
+				// .add({
+				// 	targets: ".wrap__bg",
+				// 	opacity: [1, 0],
+				// 	duration: 500,
+				// 	easing: "linear",
+				// 	complete: function(anim) {
+				// 		$(".wrap").addClass("wrap--story");
+				// 	}
+				// })
+				// .add({
+				// 	targets: ".dialog",
+				// 	opacity: [1, 0],
+				// 	duration: 1500,
+				// 	easing: "linear"
+				// }, "-=1500")
 				.add({
 					targets: ".wrap__bg",
 					opacity: [0, 1],
@@ -197,7 +195,7 @@
 					complete: function(anim) {
 
 					}
-				})
+				}, "-=1000")
 				.add({
 					targets: ".sheet",
 					opacity: [0, 1],
