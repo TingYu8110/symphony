@@ -45,6 +45,9 @@ body {
 			padding-top: 178px;
 			height: auto;
 		}
+		@include breakpoint(1440) {
+			overflow: visible;
+		}
 	}
 }
 

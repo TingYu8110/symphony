@@ -105,10 +105,14 @@ body {
 	}
 	&__btn {
 		position: absolute;
-		bottom: 21.34%;
+		bottom: 15%;
 		left: calc(50% - 116px);
 		width: 232px;
 		transition: all 0.4s;
+
+		@include breakpoint(md) {
+			bottom: 21.34%;
+		}
 
 		&:hover {
 			transform: scale(1.05);

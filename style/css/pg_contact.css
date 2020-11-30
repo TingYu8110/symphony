@@ -13,14 +13,17 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    transform-origin: center;
+    -webkit-transform-origin: center;
+            transform-origin: center;
     background: url("../images/events/elements/bg.jpg") center/cover; }
     @media (max-width: 1023px) {
       .wrap__bg {
         position: fixed; } }
   .wrap__inner {
+    display: -webkit-box;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+            align-items: center;
     height: 100vh; }
     @media (max-width: 1023px) {
       .wrap__inner {
@@ -44,9 +47,12 @@
     height: 80%; }
   .book__main {
     height: calc(100% - 65px);
+    display: -webkit-box;
     display: flex;
-    justify-content: center;
-    align-items: center; }
+    -webkit-box-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+            align-items: center; }
   .book__title {
     font-size: 24px;
     line-height: 34px;
@@ -56,9 +62,12 @@
     margin-bottom: 40px; }
   .book__footer {
     height: 65px;
+    display: -webkit-box;
     display: flex;
-    justify-content: center;
-    align-items: center; }
+    -webkit-box-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+            align-items: center; }
     @media (max-width: 1023px) {
       .book__footer {
         display: block; } }
@@ -77,19 +86,27 @@
           margin: 0 auto; } }
 
 .social-media {
+  display: -webkit-box;
   display: flex;
-  justify-content: space-between; }
+  -webkit-box-pack: justify;
+          justify-content: space-between; }
   .social-media__item {
-    flex: 1 1 40px;
+    -webkit-box-flex: 1;
+            flex: 1 1 40px;
     max-width: 40px;
+    display: -webkit-box;
     display: flex;
-    justify-content: center;
-    align-items: center; }
+    -webkit-box-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+            align-items: center; }
   .social-media__link {
     padding: 5px; }
     .social-media__link img {
+      -webkit-transition: all .4s;
       transition: all .4s; }
     .social-media__link:hover img {
-      transform: scale(1.1); }
+      -webkit-transform: scale(1.1);
+              transform: scale(1.1); }
 
 /*# sourceMappingURL=pg_contact.css.map */

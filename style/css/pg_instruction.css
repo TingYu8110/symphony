@@ -1,90 +1,134 @@
 @media (max-width: 1023px) {
   body {
-    overflow: auto; } }
+    overflow: auto;
+  }
+}
 
 .wrap {
-  position: relative; }
-  @media (max-width: 1023px) {
-    .wrap {
-      overflow: visible; } }
+  position: relative;
+}
+@media (max-width: 1023px) {
+  .wrap {
+    overflow: visible;
+  }
+}
+.wrap__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  background: url("../images/events/elements/p4-bg.jpg") center/cover;
+}
+@media (max-width: 1023px) {
   .wrap__bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    transform-origin: center;
-    background: url("../images/events/elements/p4-bg.jpg") center/cover; }
-    @media (max-width: 1023px) {
-      .wrap__bg {
-        position: fixed; } }
+    position: fixed;
+  }
+}
+.wrap__inner {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  height: 100vh;
+  max-width: 1440px;
+  overflow: hidden;
+}
+@media (max-width: 1023px) {
   .wrap__inner {
-    display: flex;
-    align-items: center;
-    height: 100vh;
-    max-width: 1440px;
-    overflow: hidden; }
-    @media (max-width: 1023px) {
-      .wrap__inner {
-        flex-wrap: wrap;
-        padding-top: 178px;
-        height: auto; } }
+    flex-wrap: wrap;
+    padding-top: 178px;
+    height: auto;
+  }
+}
+@media (min-width: 1440px) {
+  .wrap__inner {
+    overflow: visible;
+  }
+}
 
 @media (min-width: 1024px) {
   .paper__mobile {
-    display: none; } }
+    display: none;
+  }
+}
 @media (max-width: 767px) {
   .paper__img {
-    width: calc(100% +  60px);
-    max-width: calc(100% +  60px);
-    margin-left: -30px; } }
+    width: calc(100% + 60px);
+    max-width: calc(100% + 60px);
+    margin-left: -30px;
+  }
+}
 @media (max-width: 1023px) and (min-width: 768px) {
   .paper__img {
     max-width: 60%;
     margin-left: 20%;
-    margin-bottom: 20px; } }
-
+    margin-bottom: 20px;
+  }
+}
 @media (min-width: 1024px) {
   .paper__img {
     width: 110%;
     max-width: 110%;
-    margin-left: -5%; } }
+    margin-left: -5%;
+  }
+}
 @media (max-width: 1023px) {
   .paper__intro {
     width: 80%;
     max-width: 80%;
     margin-left: 10%;
-    margin-bottom: -15vw; }
-    .paper__intro:last-child {
-      margin-bottom: 0; } }
-  @media (max-width: 1023px) and (max-width: 767px) {
-    .paper__intro {
-      width: 150%;
-      max-width: 150%;
-      margin-left: -25%;
-      margin-bottom: -25vw; }
-      .paper__intro:last-child {
-        margin-bottom: 0; } }
-
+    margin-bottom: -15vw;
+  }
+  .paper__intro:last-child {
+    margin-bottom: 0;
+  }
+}
+@media (max-width: 1023px) and (max-width: 767px) {
+  .paper__intro {
+    width: 150%;
+    max-width: 150%;
+    margin-left: -25%;
+    margin-bottom: -25vw;
+  }
+  .paper__intro:last-child {
+    margin-bottom: 0;
+  }
+}
 @media (max-width: 1023px) {
   .paper__web {
-    display: none; } }
+    display: none;
+  }
+}
 .paper__btn-outer {
   width: 232px;
   position: absolute;
   top: 80%;
-  left: calc(50% - 116px); }
-  @media (max-width: 1023px) {
-    .paper__btn-outer {
-      position: static;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      margin-bottom: 30px; } }
+  left: calc(50% - 116px);
+}
+@media (max-width: 1023px) {
+  .paper__btn-outer {
+    position: static;
+    width: 100%;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+            justify-content: center;
+    margin-bottom: 30px;
+  }
+}
 .paper__btn {
   width: 232px;
-  transition: transform 0.4s; }
-  .paper__btn:hover {
-    transform: scale(1.05) !important; }
+  -webkit-transition: -webkit-transform 0.4s;
+  transition: -webkit-transform 0.4s;
+  transition: transform 0.4s;
+  transition: transform 0.4s, -webkit-transform 0.4s;
+}
+.paper__btn:hover {
+  -webkit-transform: scale(1.05) !important;
+          transform: scale(1.05) !important;
+}
 
 /*# sourceMappingURL=pg_instruction.css.map */
