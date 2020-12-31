@@ -113,6 +113,9 @@ body {
 		top: 20px;
 		left: calc(50% - 110px);
 	}
+	@include breakpoint(lg) {
+		position: fixed;
+	}
 
 	&__link {
 		width: 220px;
@@ -144,11 +147,37 @@ body {
 		right: 0;
 		padding: 20px;
 		width: 100%;
-		transition: all .4s;
+		//transition: all .4s;
+
+		.menu__inner {
+			position: relative;
+			z-index: 1;
+		}
+
+		&::after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: -25%;
+			display: block;
+			width: 150%;
+			height: 150%;
+			background: url("../images/events/elements/p2-bg.jpg") top center / cover;
+			opacity: 0;
+			transition: opacity .4s;
+			box-shadow: 0 -5px 10px rgba(#000, 0.1);
+		}
 
 		&--active {
-			background: #fff;
+			//background: #fff;
+
+			&::after {
+				opacity: 0.9;
+			}
 		}
+	}
+	@include breakpoint(lg) {
+		position: fixed;
 	}
 
 	&__inner {
@@ -197,13 +226,17 @@ body {
 		font-family: Didot;
 		text-align: right;
 		font-size: 24px;
-		line-height: 34px;
+		line-height: 40px;
 		text-decoration: none;
 		pointer-events: auto;
+
+		&--share {
+			line-height: 1;
+		}
 
 		@include active-hover {
 			color: $primary;
 			text-decoration: underline;
-		};
+		}
 	}
 }

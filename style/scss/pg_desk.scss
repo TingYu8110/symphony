@@ -1,0 +1,364 @@
+@charset "utf-8";
+
+@import
+	'abstracts/variables',
+	'abstracts/function',
+    'abstracts/mixins';
+
+body {
+	@include breakpoint(lg, max) {
+		overflow: auto;
+	}
+}
+
+.wrap {
+	position: relative;
+
+	@include breakpoint(lg, max) {
+		min-height: 100vh;
+		.wrap--story & {
+			overflow: visible;
+		}
+	}
+
+	&__bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		transform-origin: center;
+
+		background: url("../images/events/elements/p2-bg.jpg") center / cover;
+		animation: fade-in 3s forwards;
+
+		@include breakpoint(lg, max) {
+			position: fixed;
+		}
+
+		.wrap--story & {
+			background-image: url("../images/events/elements/bg.png?t=20210101v1");
+		}
+		.wrap--animation-less & {
+			animation: none;
+		}
+	}
+	&__inner {
+		display: flex;
+		align-items: center;
+		height: 100vh;
+		max-width: 740px;
+
+		.wrap.fin & {
+			max-width: 1440px;
+		}
+
+		@include breakpoint(lg, max) {
+			.wrap--story & {
+				flex-wrap: wrap;
+				padding-top: 178px;
+				height: auto;
+			}
+		}
+	}
+}
+
+.subtitle {
+	width: 450px;
+	max-width: 450px;
+	position: absolute;
+	top: 45px;
+	left: calc(50% - 225px);
+	display: flex;
+	justify-content: center;
+	opacity: 0;
+	z-index: 2;
+
+	@include breakpoint(lg, max) {
+		top: 182px;
+	}
+
+	&__bg {
+		position: absolute;
+		top: 0;
+		left: calc(50% - 225px);
+		width: 450px;
+		height: 100%;
+		opacity: 0.8;
+		filter: blur(5px);
+		background-color: #ffffff;
+		animation: bluring 0.75s infinite alternate ease-in-out;
+
+		@include breakpoint(lg, max) {
+			width: 90vw;
+			left: calc(50% - 45vw);
+
+			@include breakpoint(md) {
+				animation: bluring-md 0.75s infinite alternate ease-in-out;
+			}
+		}
+	}
+	&__string {
+		position: relative;
+		z-index: 1;
+		text-align: center;
+		padding: 14.5px 10px;
+		font-weight: bold;
+		color: #000;
+		line-height: 1.63;
+
+		&.next {
+			display: none;
+		}
+		.wrap.fin & {
+			display: none;
+
+			&.next {
+				display: block;
+			}
+		}
+	}
+}
+
+.sheet {
+	display: none;
+	position: absolute;
+	width: 100%;
+
+	@include breakpoint(lg, max) {
+		position: relative;
+		width: 100%;
+		margin-top: 150px;
+	}
+	.wrap.animating & {
+		pointer-events: none;
+	}
+	.wrap.fin & {
+		display: none;
+	}
+	&__img {
+		@include breakpoint(md, max) {
+			width: 130%;
+			max-width: 130%;
+			margin-left: -15%;
+		}
+	}
+	&__keyword {
+		position: absolute;
+		filter: drop-shadow(0px 0px 5px white) drop-shadow(0px 0px 5px white);
+
+		img {
+			opacity: 0;
+		}
+		&.active img {
+			animation: show forwards 1s;
+			opacity: 1;
+		}
+		&.deafness {
+			width: 12.1%;
+			top: 17.9%;
+			right: 34.44%;
+
+			@include breakpoint(md, max) {
+				width: 16%;
+				top: 18%;
+				right: 29.5%;
+			}
+		}
+		&.obstacle {width: 17.8%;
+			top: 31.8%;
+			left: 45.6%;
+			@include breakpoint(md, max) {
+				width: 26%;
+				top: 30.5%;
+				left: 42.8%;
+			}
+		}
+		&.abandon {
+			width: 12.7%;
+			top: 43%;
+			left: 44.8%;
+			@include breakpoint(md, max) {
+				width: 17%;
+				top: 42.7%;
+				left: 42.3%;
+			}
+		}
+	}
+
+	.wrap--story & {
+		display: block;
+		opacity: 0;
+	}
+}
+
+.paper-box {
+	position: absolute;
+	width: 100%;
+	display: none;
+
+	@include breakpoint(lg, max) {
+		position: relative;
+		width: 100%;
+	}
+	.wrap.fin & {
+		display: block;
+		animation: topin forwards 1s;
+	}
+	&__img {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translateY(-50%) translateX(-50%);
+		max-width: 1113px;
+		@include breakpoint(md, max) {
+			width: 130%;
+			max-width: 130%;
+			margin-left: -15%;
+		}
+		@include breakpoint(lg, max) {
+			display: none;
+		}
+	}
+}
+
+.paper {
+	position: relative;
+	z-index: 1;
+
+	&__mobile {
+		@include breakpoint(lg) {
+			display: none;
+		}
+	}
+	&__img {
+		@include breakpoint(md, max) {
+			width: calc(100% +  60px);
+			max-width: calc(100% +  60px);
+			margin-left: -30px;
+		}
+		@include breakpoint(lg, max) {
+			@include breakpoint(md) {
+				max-width: 60%;
+				margin-left: 20%;
+				margin-bottom: 20px;
+			}
+		}
+		@include breakpoint(lg) {
+			width: 110%;
+			max-width: 110%;
+			margin-left: -5%;
+		}
+	}
+	&__intro {
+		@include breakpoint(lg, max) {
+			width: 80%;
+			max-width: 80%;
+			margin-left: 10%;
+			margin-bottom: -15vw;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+			@include breakpoint(md, max) {
+				width: 150%;
+				max-width: 150%;
+				margin-left: -25%;
+				margin-bottom: -25vw;
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+	&__web {
+		@include breakpoint(lg, max) {
+			display: none;
+		}
+	}
+	&__btn-outer {
+		width: 232px;
+		position: absolute;
+		top: 80%;
+		left: calc(50% - 116px);
+
+		@include breakpoint(lg, max) {
+			position: static;
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			margin-bottom: 30px;
+		}
+	}
+	&__btn {
+		width: 232px;
+		transition: transform 0.4s;
+
+		&:hover {
+			transform: scale(1.05) !important;
+		}
+	}
+}
+
+.fin-btn {
+	position: absolute;
+	width: 14.45%;
+	top: 53.47%;
+	right: 11.35%;
+
+	@include breakpoint(md, max) {
+		width: 26.666%;
+		top: 62px;
+		right: 0;
+	}
+
+	&__hint {
+		font-size: 14px;
+		position: absolute;
+		top: -25%;
+		white-space: nowrap;
+		color: #c34236;
+		display: none;
+		font-weight: bold;
+		pointer-events: none;
+
+		@include breakpoint(md, max) {
+			left: 50%;
+			transform: translateX(-50%);
+		}
+
+		.fin-btn--hint & {
+			display: block;
+			animation: show forwards 0.4s;
+
+			@include breakpoint(md, max) {
+				animation: show-hint forwards 0.4s;
+			}
+		}
+		span {
+			display: block;
+
+			&.shakeX {
+				animation: shakeX .85s;
+			}
+		}
+	}
+}
+
+.back-btn {
+	position: fixed;
+	width: 77px;
+	top: 26.58%;
+	left: 40px;
+	z-index: 3;
+	filter: drop-shadow(0px 2px 2px black);
+
+	@include breakpoint(md, max) {
+		width: 54px;
+		top: 10%;
+		left: 5%;
+		filter: none;
+	}
+}

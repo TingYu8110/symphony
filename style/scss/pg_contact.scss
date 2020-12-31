@@ -26,7 +26,7 @@ body {
 		height: 100vh;
 		transform-origin: center;
 
-		background: url("../images/events/elements/bg.jpg") center / cover;
+		background: url("../images/events/elements/bg.png?t=20210101v1") center / cover;
 		//animation: fade-in 3s forwards;
 
 		@include breakpoint(lg, max) {

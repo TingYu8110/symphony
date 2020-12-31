@@ -14,7 +14,7 @@
     width: 100vw;
     height: 100vh;
     transform-origin: center;
-    background: url("../images/events/elements/bg.jpg") center/cover; }
+    background: url("../images/events/elements/bg.png?t=20210101v1") center/cover; }
     @media (max-width: 1023px) {
       .wrap__bg {
         position: fixed; } }

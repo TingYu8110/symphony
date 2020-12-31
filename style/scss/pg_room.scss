@@ -85,7 +85,7 @@
 }
 
 .subtitle {
-	max-width: 400px;
+	max-width: 450px;
 	position: absolute;
 	top: 45px;
 	display: flex;
@@ -98,8 +98,8 @@
 	&__bg {
 		position: absolute;
 		top: 0;
-		left: calc(50% - 200px);
-		width: 400px;
+		left: calc(50% - 225px);
+		width: 450px;
 		height: 100%;
 		opacity: 0.8;
 		filter: blur(5px);
@@ -122,6 +122,18 @@
 		padding: 14.5px 10px;
 		font-weight: bold;
 		color: #000;
+		line-height: 1.63;
+
+		&.next {
+			display: none;
+		}
+		.wrap--next & {
+			display: none;
+
+			&.next {
+				display: block;
+			}
+		}
 	}
 }
 
@@ -133,7 +145,11 @@
 	opacity: 0;
 	position: relative;
 
-	&:hover {
+	&.immediate {
+		transition: none;
+	}
+
+	&:not(.item__link--active):not(.item__link--animating):hover {
 		transform: translateY(-10px);
 	}
 	&-title {
@@ -171,6 +187,11 @@
 	&__img {
 		width: 100%;
 	}
+	.item__link--active {
+		@include breakpoint(lg) {
+			transform: translateY(-50px);
+		}
+	}
 }
 
 .envelope {
@@ -199,6 +220,11 @@
 	&__img {
 		width: 100%;
 	}
+	.item__link--active {
+		@include breakpoint(lg, max) {
+			transform: translateY(-15px);
+		}
+	}
 }
 
 .script {
@@ -226,5 +252,48 @@
 	}
 	&__img {
 		width: 100%;
+	}
+}
+
+.item {
+	&__link--active {
+		transform: translateY(-30px);
+		&:hover {
+			cursor: default;
+		}
+	}
+	&__img {
+		filter: drop-shadow(0 0 23px rgba(255, 238, 182, 0.9));
+		animation: glow 1.5s infinite reverse ease-in-out;
+
+		.item__link--active & {
+			display: none;
+		}
+	}
+	&__clue {
+		width: 150px;
+		max-width: 150px;
+		display: none;
+
+		.item__link--active & {
+			display: block;
+			animation: show forwards 1s;
+		}
+	}
+}
+
+.btn-next {
+	width: 232px;
+	position: absolute;
+	top: 37.74%;
+	display: none;
+
+	@include breakpoint(lg) {
+		top: 19.74%;
+	}
+
+	.wrap--next & {
+		display: block;
+		animation: show forwards 1s;
 	}
 }

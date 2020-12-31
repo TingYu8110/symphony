@@ -1,0 +1,333 @@
+body {
+  overflow: auto; }
+
+.wrap {
+  position: relative;
+  overflow-y: visible; }
+  .wrap__bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    transform-origin: center;
+    background: url("../images/events/elements/bg.png?t=20210101v1") center/cover repeat-y;
+    animation: fade-in 3s forwards; }
+  .wrap__inner {
+    max-width: 1440px; }
+    @media (max-width: 1023px) {
+      .wrap__inner {
+        padding: 0 24px; } }
+  @media (max-width: 1023px) and (min-width: 768px) {
+    .wrap__inner {
+      padding: 0 50px; } }
+
+@media (max-width: 1600px) and (min-width: 1024px) {
+  .wrap__inner {
+    max-width: 850px; } }
+@media (max-width: 1600px) and (min-width: 1440px) {
+  .wrap__inner {
+    max-width: 1040px; } }
+
+  .wrap__container {
+    max-width: 1040px;
+    margin: 0 auto; }
+
+.title {
+  max-width: 1140px;
+  margin: 0 auto 30px; }
+  @media (max-width: 1023px) {
+    .title {
+      max-width: 100%; } }
+  @media (max-width: 1023px) and (min-width: 768px) {
+    .title {
+      max-width: 300px; } }
+
+  @media (max-width: 1023px) {
+    .title.main {
+      display: none; } }
+@media (max-width: 1600px) and (min-width: 1024px) {
+  .title.main {
+    max-width: 600px; } }
+@media (max-width: 1600px) and (min-width: 1280px) {
+  .title.main {
+    max-width: 750px; } }
+@media (max-width: 1600px) and (min-width: 1440px) {
+  .title.main {
+    max-width: 850px; } }
+
+.musician {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 150px; }
+  @media (max-width: 1023px) {
+    .musician {
+      margin-bottom: 65px; } }
+  @media (max-width: 1023px) and (min-width: 768px) {
+    .musician {
+      margin-top: 220px;
+      margin-bottom: 150px; } }
+
+  .musician::after {
+    content: "";
+    display: block;
+    padding-bottom: 71%; }
+    @media (max-width: 767px) {
+      .musician::after {
+        display: none; } }
+  .musician__bg {
+    position: absolute; }
+    @media (max-width: 767px) {
+      .musician__bg {
+        display: none; } }
+  .musician__list {
+    position: relative;
+    z-index: 1;
+    padding: 0 80px;
+    margin-top: 6%; }
+    @media (max-width: 767px) {
+      .musician__list {
+        padding: 0 15px; } }
+  .musician__title {
+    margin-top: 180px;
+    margin-bottom: 20px;
+    width: 320px; }
+    @media (min-width: 768px) {
+      .musician__title {
+        display: none; } }
+  .musician .owl-nav {
+    position: absolute;
+    width: calc(100% + 160px);
+    top: 50%;
+    left: -80px;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between; }
+    @media (max-width: 1023px) {
+      .musician .owl-nav {
+        width: 100%;
+        left: 0; } }
+  .musician .owl-prev,
+  .musician .owl-next {
+    width: 80px;
+    height: 80px; }
+    .musician .owl-prev span,
+    .musician .owl-next span {
+      display: none; }
+  .musician .owl-prev {
+    background: url("../images/events/elements/p3-btn-left.png?t=20210101v1") center/contain no-repeat !important; }
+    .musician .owl-prev:hover {
+      animation: left-float 1s infinite; }
+  .musician .owl-next {
+    background: url("../images/events/elements/p3-btn-right.png?t=20210101v1") center/contain no-repeat !important; }
+    .musician .owl-next:hover {
+      animation: right-float 1s infinite; }
+
+.instrument.row {
+  margin: -17px -50px 0; }
+  @media (max-width: 767px) {
+    .instrument.row {
+      margin-top: 0;
+      margin-bottom: 60px; } }
+@media (max-width: 1023px) and (min-width: 768px) {
+  .instrument.row {
+    margin: -17px -15px 0; } }
+
+@media (max-width: 1600px) and (min-width: 1024px) {
+  .instrument.row {
+    margin: -17px -30px 50px; } }
+
+  .instrument.row > * {
+    padding: 0 50px; }
+    @media (max-width: 767px) {
+      .instrument.row > * {
+        display: flex;
+        justify-content: center; } }
+    @media (min-width: 768px) {
+      .instrument.row > *:nth-child(3n+1) {
+        margin-top: -150px; }
+      .instrument.row > *:nth-child(3n+2) .instrument__item {
+        margin: 0 auto; }
+      .instrument.row > *:nth-child(3n) {
+        margin-top: 150px; } }
+@media (max-width: 1023px) and (min-width: 768px) {
+  .instrument.row > * {
+    padding: 0 15px; } }
+
+@media (max-width: 1600px) and (min-width: 1024px) {
+  .instrument.row > * {
+    padding: 0 30px; } }
+
+.instrument.title {
+  width: 740px;
+  margin-right: 0; }
+  @media (max-width: 767px) {
+    .instrument.title {
+      width: 304px;
+      margin-left: 0;
+      margin-bottom: 30px; } }
+@media (max-width: 1600px) and (min-width: 1024px) {
+  .instrument.title {
+    max-width: 450px; } }
+
+.instrument__item {
+  max-width: 300px; }
+  @media (max-width: 767px) {
+    .instrument__item {
+      margin-bottom: 30px; } }
+.instrument__img {
+  margin-bottom: 30px; }
+.instrument__desc {
+  font-size: 13px;
+  line-height: 2;
+  color: #fff;
+  margin-bottom: 30px; }
+.instrument__btn {
+  display: block;
+  width: 232px;
+  max-width: 100%;
+  margin: 0 auto; }
+
+.band {
+  color: #fff;
+  margin-bottom: 200px; }
+  .band.row {
+    margin: 0 -12.5px 200px; }
+    .band.row > * {
+      padding: 0 12.5px; }
+    .band.row .col-five {
+      flex: 1 1 20%;
+      max-width: 20%; }
+      @media (max-width: 1023px) {
+        .band.row .col-five {
+          flex: 1 1 100%;
+          max-width: 100%;
+          margin-bottom: 30px; } }
+  @media (max-width: 1023px) and (min-width: 768px) {
+    .band.row .col-five {
+      flex: 1 1 33.333%;
+      max-width: 33.333%; } }
+
+  .band.title {
+    width: 614px;
+    margin-left: 0;
+    margin-bottom: 50px; }
+    @media (max-width: 767px) {
+      .band.title {
+        width: 304px;
+        margin-left: 0;
+        margin-bottom: 30px; } }
+@media (max-width: 1600px) and (min-width: 1024px) {
+  .band.title {
+    width: 450px; } }
+
+  .band__title {
+    font-size: 24px;
+    line-height: 1.25;
+    font-weight: bold;
+    margin-bottom: 10px; }
+  .band__desc {
+    font-size: 13px;
+    line-height: 2; }
+  .band__img {
+    margin-top: 50px; }
+
+.other {
+  color: #fff; }
+  .other.row {
+    margin: 0 -27.5px; }
+@media (max-width: 1023px) and (min-width: 768px) {
+  .other.row {
+    margin: 0 -15px; } }
+
+    .other.row > * {
+      padding: 0 27.5px; }
+      @media (max-width: 767px) {
+        .other.row > * {
+          flex: 1 1 100%;
+          max-width: 100%; }
+          .other.row > *:first-child {
+            margin-bottom: 30px; } }
+@media (max-width: 1023px) and (min-width: 768px) {
+  .other.row > * {
+    padding: 0 15px; } }
+
+  .other.title {
+    width: 520px;
+    margin-left: 0;
+    margin-bottom: 50px; }
+@media (max-width: 1600px) and (min-width: 1024px) {
+  .other.title {
+    width: 450px; } }
+
+  .other__title {
+    font-size: 24px;
+    line-height: 1.25;
+    font-weight: bold;
+    margin-bottom: 40px; }
+    @media (max-width: 767px) {
+      .other__title {
+        margin-bottom: 20px; } }
+  .other__desc {
+    font-size: 13px;
+    line-height: 2;
+    margin-bottom: 80px; }
+    @media (max-width: 767px) {
+      .other__desc {
+        margin-bottom: 50px; } }
+
+.other-2 {
+  color: #fff; }
+  .other-2.row {
+    margin: 0 -50px 92px; }
+@media (max-width: 1023px) and (min-width: 768px) {
+  .other-2.row {
+    margin: 0 -15px 80px; } }
+
+@media (max-width: 1600px) and (min-width: 1024px) {
+  .other-2.row {
+    margin: 0 -27.5px 92px; } }
+
+    .other-2.row > * {
+      padding: 0 50px; }
+      .other-2.row > *:nth-child(2) {
+        margin-top: 123px; }
+        @media (max-width: 767px) {
+          .other-2.row > *:nth-child(2) {
+            margin-top: 30px; } }
+@media (max-width: 1023px) and (min-width: 768px) {
+  .other-2.row > * {
+    padding: 0 15px; } }
+
+@media (max-width: 1600px) and (min-width: 1024px) {
+  .other-2.row > * {
+    padding: 0 27.5px; } }
+
+  .other-2__title {
+    font-size: 24px;
+    line-height: 1.25;
+    font-weight: bold;
+    margin-bottom: 40px; }
+    @media (max-width: 767px) {
+      .other-2__title {
+        margin-bottom: 20px; } }
+  .other-2__desc {
+    font-size: 13px;
+    line-height: 2;
+    margin-bottom: 20px; }
+  .other-2__img.high {
+    width: 171px;
+    margin-bottom: 20px; }
+  .other-2__img.scale {
+    width: 100%; }
+  .other-2__img.low {
+    width: 193px;
+    margin-bottom: 20px; }
+
+.the-btn {
+  display: block;
+  width: 232px;
+  margin: 0 auto 100px; }
+
+/*# sourceMappingURL=pg_learing.css.map */

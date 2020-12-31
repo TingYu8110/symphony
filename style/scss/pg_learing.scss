@@ -1,0 +1,454 @@
+@charset "utf-8";
+
+@import
+	'abstracts/variables',
+	'abstracts/function',
+    'abstracts/mixins';
+
+body {
+	overflow: auto;
+}
+.wrap {
+	position: relative;
+	overflow-y: visible;
+
+	&__bg {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		transform-origin: center;
+
+		background: url("../images/events/elements/bg.png?t=20210101v1") center / cover repeat-y;
+		animation: fade-in 3s forwards;
+	}
+	&__inner {
+		max-width: 1440px;
+
+		@include breakpoint(lg, max) {
+			padding: 0 24px;
+
+			@include breakpoint(md) {
+				padding: 0 50px;
+			}
+		}
+		@include breakpoint(1600, max) {
+			@include breakpoint(lg) {
+				max-width: 850px;
+			}
+			@include breakpoint(1440) {
+				max-width: 1040px;
+			}
+		}
+	}
+	&__container {
+		max-width: 1040px;
+		margin: 0 auto;
+	}
+}
+
+.title {
+	max-width: 1140px;
+	margin: 0 auto 30px;
+
+	@include breakpoint(lg, max) {
+		max-width: 100%;
+
+		@include breakpoint(md) {
+			max-width: 300px;
+		}
+	}
+
+	&.main {
+		@include breakpoint(lg, max) {
+			display: none;
+		}
+		@include breakpoint(1600, max) {
+			@include breakpoint(lg) {
+				max-width: 600px;
+			}
+			@include breakpoint(1280) {
+				max-width: 750px;
+			}
+			@include breakpoint(1440) {
+				max-width: 850px;
+			}
+		}
+	}
+}
+
+.musician {
+	position: relative;
+	display: flex;
+	align-items: center;
+	margin-bottom: 150px;
+
+	@include breakpoint(lg, max) {
+		margin-bottom: 65px;
+
+		@include breakpoint(md) {
+			margin-top: 220px;
+			margin-bottom: 150px;
+		}
+	}
+
+	&::after {
+		content: "";
+		display: block;
+		padding-bottom: 71%;
+
+		@include breakpoint(md, max) {
+			display: none;
+		}
+	}
+	&__bg {
+		position: absolute;
+
+		@include breakpoint(md, max) {
+			display: none;
+		}
+	}
+	&__list {
+		position: relative;
+		z-index: 1;
+		padding: 0 80px;
+		margin-top: 6%;
+
+		@include breakpoint(md, max) {
+			padding: 0 15px;
+		}
+	}
+	&__title {
+		margin-top: 180px;
+		margin-bottom: 20px;
+		width: 320px;
+		@include breakpoint(md) {
+			display: none;
+		}
+	}
+
+	.owl-nav {
+		position: absolute;
+		width: calc(100% + 160px);
+		top: 50%;
+		left: -80px;
+		transform: translateY(-50%);
+		display: flex;
+		justify-content: space-between;
+
+		@include breakpoint(lg, max) {
+			width: 100%;
+			left: 0;
+		}
+	}
+	.owl-prev,
+	.owl-next {
+		width: 80px;
+		height: 80px;
+		span {
+			display: none;
+		}
+	}
+	.owl-prev {
+		background: url("../images/events/elements/p3-btn-left.png?t=20210101v1") center / contain no-repeat!important;
+
+		&:hover {
+			animation: left-float 1s infinite;
+		}
+	}
+	.owl-next {
+		background: url("../images/events/elements/p3-btn-right.png?t=20210101v1") center / contain no-repeat!important;
+		&:hover {
+			animation: right-float 1s infinite;
+		}
+	}
+}
+
+.instrument {
+	&.row {
+		margin: -17px -50px 0;
+
+		@include breakpoint(md, max) {
+			margin-top: 0;
+			margin-bottom: 60px;
+		}
+		@include breakpoint(lg, max) {
+			@include breakpoint(md) {
+				margin: -17px -15px 0;
+			}
+		}
+		@include breakpoint(1600, max) {
+			@include breakpoint(lg) {
+				margin: -17px -30px 50px;
+			}
+		}
+
+		> * {
+			padding: 0 50px;
+
+			@include breakpoint(md, max) {
+				display: flex;
+				justify-content: center;
+			}
+			@include breakpoint(md) {
+				&:nth-child(3n+1) {
+					margin-top: -150px;
+				}
+				&:nth-child(3n+2) {
+					.instrument__item {
+						margin: 0 auto;
+					}
+				}
+				&:nth-child(3n) {
+					margin-top: 150px;
+				}
+			}
+			@include breakpoint(lg, max) {
+				@include breakpoint(md) {
+					padding: 0 15px;
+				}
+			}
+			@include breakpoint(1600, max) {
+				@include breakpoint(lg) {
+					padding: 0 30px;
+				}
+			}
+		}
+	}
+	&.title {
+		width: 740px;
+		margin-right: 0;
+
+		@include breakpoint(md, max) {
+			width: 304px;
+			margin-left: 0;
+			margin-bottom: 30px;
+		}
+
+		@include breakpoint(1600, max) {
+			@include breakpoint(lg) {
+				max-width: 450px;
+			}
+		}
+	}
+	&__item {
+		max-width: 300px;
+
+		@include breakpoint(md, max) {
+			margin-bottom: 30px;
+		}
+	}
+	&__img {
+		margin-bottom: 30px;
+	}
+	&__desc {
+		font-size: 13px;
+		line-height: 2;
+		color: #fff;
+		margin-bottom: 30px;
+	}
+	&__btn {
+		display: block;
+		width: 232px;
+		max-width: 100%;
+		margin: 0 auto;
+	}
+}
+
+.band {
+	color: #fff;
+	margin-bottom: 200px;
+
+	&.row {
+		margin: 0 -12.5px 200px;
+
+		> * {
+			padding: 0 12.5px;
+		}
+		.col-five {
+			flex: 1 1 20%;
+			max-width: 20%;
+
+			@include breakpoint(lg, max) {
+				flex: 1 1 100%;
+				max-width: 100%;
+				margin-bottom: 30px;
+
+				@include breakpoint(md) {
+					flex: 1 1 33.333%;
+					max-width: 33.333%;
+				}
+			}
+		}
+	}
+	&.title {
+		width: 614px;
+		margin-left: 0;
+		margin-bottom: 50px;
+
+		@include breakpoint(md, max) {
+			width: 304px;
+			margin-left: 0;
+			margin-bottom: 30px;
+		}
+		@include breakpoint(1600, max) {
+			@include breakpoint(lg) {
+				width: 450px;
+			}
+		}
+	}
+	&__title {
+		font-size: 24px;
+		line-height: 1.25;
+		font-weight: bold;
+		margin-bottom: 10px;
+	}
+	&__desc {
+		font-size: 13px;
+		line-height: 2;
+	}
+	&__img {
+		margin-top: 50px;
+	}
+}
+
+.other {
+	color: #fff;
+
+	&.row {
+		margin: 0 -27.5px;
+
+		@include breakpoint(lg, max) {
+			@include breakpoint(md) {
+				margin: 0 -15px;
+			}
+		}
+
+		> * {
+			padding: 0 27.5px;
+
+			@include breakpoint(md, max) {
+				flex: 1 1 100%;
+				max-width: 100%;
+
+				&:first-child {
+					margin-bottom: 30px;
+				}
+			}
+
+			@include breakpoint(lg, max) {
+				@include breakpoint(md) {
+					padding: 0 15px;
+				}
+			}
+		}
+	}
+	&.title {
+		width: 520px;
+		margin-left: 0;
+		margin-bottom: 50px;
+
+		@include breakpoint(1600, max) {
+			@include breakpoint(lg) {
+				width: 450px;
+			}
+		}
+	}
+	&__title {
+		font-size: 24px;
+		line-height: 1.25;
+		font-weight: bold;
+		margin-bottom: 40px;
+
+		@include breakpoint(md, max) {
+			margin-bottom: 20px;
+		}
+	}
+	&__desc {
+		font-size: 13px;
+		line-height: 2;
+		margin-bottom: 80px;
+
+		@include breakpoint(md, max) {
+			margin-bottom: 50px;
+		}
+	}
+	&__img {
+	}
+}
+.other-2 {
+	color: #fff;
+
+	&.row {
+		margin: 0 -50px 92px;
+
+		@include breakpoint(lg, max) {
+			@include breakpoint(md) {
+				margin: 0 -15px 80px;
+			}
+		}
+		@include breakpoint(1600, max) {
+			@include breakpoint(lg) {
+				margin: 0 -27.5px 92px;
+			}
+		}
+
+		> * {
+			padding: 0 50px;
+
+			&:nth-child(2) {
+				margin-top: 123px;
+
+				@include breakpoint(md, max) {
+					margin-top: 30px;
+				}
+			}
+
+			@include breakpoint(lg, max) {
+				@include breakpoint(md) {
+					padding: 0 15px;
+				}
+			}
+			@include breakpoint(1600, max) {
+				@include breakpoint(lg) {
+					padding: 0 27.5px;
+				}
+			}
+		}
+	}
+	&__title {
+		font-size: 24px;
+		line-height: 1.25;
+		font-weight: bold;
+		margin-bottom: 40px;
+
+		@include breakpoint(md, max) {
+			margin-bottom: 20px;
+		}
+	}
+	&__desc {
+		font-size: 13px;
+		line-height: 2;
+		margin-bottom: 20px;
+	}
+	&__img {
+		&.high {
+			width: 171px;
+			margin-bottom: 20px;
+		}
+		&.scale {
+			width: 100%;
+		}
+		&.low {
+			width: 193px;
+			margin-bottom: 20px;
+		}
+	}
+}
+
+.the-btn {
+	display: block;
+	width: 232px;
+	margin: 0 auto 100px;
+}

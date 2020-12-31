@@ -1,125 +1,104 @@
 @charset "utf-8";
 
 @import
-	'abstracts/variables',
-	'abstracts/function',
-    'abstracts/mixins';
+'abstracts/variables',
+'abstracts/function',
+'abstracts/mixins';
+
+@media (max-width: 1023px) {
+	body {
+		overflow: auto; } }
 
 .wrap {
-	position: relative;
+	position: relative; }
+@media (max-width: 1023px) {
+	.wrap--story .wrap {
+		overflow: visible; } }
+.wrap__bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	transform-origin: center;
+	background: url("../images/events/elements/p2-bg.jpg") center/cover;
+	animation: fade-in 3s forwards; }
+@media (max-width: 1023px) {
+	.wrap__bg {
+		position: fixed; } }
+.wrap--story .wrap__bg {
+	background-image: url("../images/events/elements/bg.png?t=20210101v1"); }
+.wrap--animation-less .wrap__bg {
+	animation: none; }
+.wrap__inner {
+	display: flex;
+	align-items: center;
+	height: 100vh;
 
-	&__bg {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100vw;
-		height: 100vh;
-		transform-origin: center;
-
-		background: url("../images/events/elements/bg-m.jpg") center / cover;
-		animation: fade-in 3s forwards;
-
+	@include breakpoint(1600, max) {
 		@include breakpoint(lg) {
-			background-image: url("../images/events/elements/bg.jpg");
+			max-width: 850px;
+		}
+		@include breakpoint(1440) {
+			max-width: 1000px;
 		}
 	}
 }
+@media (max-width: 1023px) {
+	.wrap--story .wrap__inner {
+		flex-wrap: wrap;
+		padding-top: 178px;
+		height: auto; } }
+
+.dialog {
+	color: #34302f; }
+.dialog__text {
+	font-weight: bold;
+	text-align: center;
+	line-height: 1.63;
+	display: none; }
+.wrap--story .dialog {
+	display: none; }
 
 .book {
-	min-height: 100vh;
-	@include flex-center();
-	position: relative;
-	z-index: 1;
-	opacity: 0;
-
-	@include breakpoint(lg, max) {
-		align-items: flex-start;
-		padding-top: 25%;
-
-		@include breakpoint(md) {
-			padding-top: 10%;
-			width: 45%;
-			margin: 0 auto;
-		}
-	}
-}
-
-.dialog-outer {
-	height: 100%;
-	@include flex-center();
-	flex-direction: column;
-
-	@include breakpoint(lg, max) {
-		margin-top: -20vw;
-
-		@include breakpoint(md) {
-			margin-top: 0;
-		}
-	}
-
-	.dialog-btn {
-		opacity: 0;
-		width: 230px;
-		padding: 0;
-		margin-top: 100px;
-		transition: all 0.4s;
-
-		&:hover {
-			transform: scale(1.05);
-		}
-		@include breakpoint(lg, max) {
-			z-index: 1;
-			margin-top: 80px;
-
-			 @include breakpoint(md) {
-			 }
-		 }
-	}
-}
-.dialog {
-	opacity: 0;
-	position: relative;
-	height: 120px;
-	width: 400px;
-
-	@include breakpoint(lg, max) {
-		margin-top: -50vw;
-		z-index: 1;
-		width: 275px;
-
-		@include breakpoint(md) {
-			width: 55%;
-		}
-	}
-
-	&__inner {
-		overflow: hidden;
-		height: 100%;
-		font-size: 16px;
-		line-height: 26px;
-		@include flex-center();
-		flex-wrap: wrap;
-	}
-
-	&::before {
-		position: absolute;
-		top: -50px;
-		left: 0;
-		content: "";
-		width: 100%;
-		height: 220px;
-		background: rgba($white, 0.8);
-		filter: blur(10px);
-		transform: scaleX(1.25);
-		z-index: 0;
-		animation: bluring-big 1s infinite alternate ease-in-out;
-	}
-	&__text {
-		display: none;
+	display: none;
+	position: absolute;
+	width: 100%; }
+@media (max-width: 1023px) {
+	.book {
 		position: relative;
-		z-index: 1;
-		text-align: center;
-		letter-spacing: 0.7px;
-		font-weight: bold;
-	}
-}
+		width: 100%; } }
+.wrap--story .book {
+	display: block;
+	opacity: 0; }
+
+.sheet {
+	display: none;
+	position: relative; }
+@media (max-width: 1023px) {
+	.sheet {
+		margin-top: -50px; } }
+@media (max-width: 1023px) and (min-width: 768px) {
+	.sheet {
+		max-width: 80%;
+		margin-top: -120px;
+		margin-left: auto;
+		margin-right: auto; } }
+
+.wrap--story .sheet {
+	display: block;
+	opacity: 0; }
+.sheet__btn {
+	padding: 0;
+	position: absolute;
+	bottom: 15%;
+	left: calc(50% - 116px);
+	width: 232px;
+	transition: all 0.4s; }
+@media (min-width: 768px) {
+	.sheet__btn {
+		bottom: 21.34%; } }
+.sheet__btn:hover {
+	transform: scale(1.05); }
+
+/*# sourceMappingURL=pg_story.css.map */
