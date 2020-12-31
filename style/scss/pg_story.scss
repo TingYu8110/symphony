@@ -1,0 +1,121 @@
+@charset "utf-8";
+
+@import
+	'abstracts/variables',
+	'abstracts/function',
+    'abstracts/mixins';
+
+body {
+	@include breakpoint(lg, max) {
+		overflow: auto;
+	}
+}
+
+.wrap {
+	position: relative;
+
+	@include breakpoint(lg, max) {
+		.wrap--story & {
+			overflow: visible;
+		}
+	}
+
+	&__bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		transform-origin: center;
+
+		background: url("../images/events/elements/p2-bg.jpg") center / cover;
+		animation: fade-in 3s forwards;
+
+		@include breakpoint(lg, max) {
+			position: fixed;
+		}
+
+		.wrap--story & {
+			background-image: url("../images/events/elements/p3-bg.jpg");
+		}
+		.wrap--animation-less & {
+			animation: none;
+		}
+	}
+	&__inner {
+		display: flex;
+		align-items: center;
+		height: 100vh;
+
+		@include breakpoint(lg, max) {
+			.wrap--story & {
+				flex-wrap: wrap;
+				padding-top: 178px;
+				height: auto;
+			}
+		}
+	}
+}
+.dialog {
+	color: #34302f;
+	&__text {
+		font-weight: bold;
+		text-align: center;
+		line-height: 1.63;
+		display: none;
+	}
+
+	.wrap--story & {
+		display: none;
+	}
+}
+.book {
+	display: none;
+	position: absolute;
+	width: 100%;
+
+	@include breakpoint(lg, max) {
+		position: relative;
+		width: 100%;
+	}
+
+	.wrap--story & {
+		display: block;
+		opacity: 0;
+	}
+}
+.sheet {
+	display: none;
+	position: relative;
+
+	@include breakpoint(lg, max) {
+		margin-top: -50px;
+
+		@include breakpoint(md) {
+			max-width: 80%;
+			margin-top: -120px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+
+	.wrap--story & {
+		display: block;
+		opacity: 0;
+	}
+	&__btn {
+		position: absolute;
+		bottom: 15%;
+		left: calc(50% - 116px);
+		width: 232px;
+		transition: all 0.4s;
+
+		@include breakpoint(md) {
+			bottom: 21.34%;
+		}
+
+		&:hover {
+			transform: scale(1.05);
+		}
+	}
+}

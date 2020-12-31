@@ -1,0 +1,129 @@
+@charset "utf-8";
+
+@import
+	'abstracts/variables',
+	'abstracts/function',
+    'abstracts/mixins';
+
+body {
+	@include breakpoint(lg, max) {
+		overflow: auto;
+	}
+}
+
+.wrap {
+	position: relative;
+
+	@include breakpoint(lg, max) {
+		overflow: visible;
+	}
+
+	&__bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		transform-origin: center;
+
+		background: url("../images/events/elements/p4-bg.jpg") center / cover;
+		//animation: fade-in 3s forwards;
+
+		@include breakpoint(lg, max) {
+			position: fixed;
+		}
+	}
+	&__inner {
+		display: flex;
+		align-items: center;
+		height: 100vh;
+		max-width: 1440px;
+		overflow: hidden;
+
+		@include breakpoint(lg, max) {
+			flex-wrap: wrap;
+			padding-top: 178px;
+			height: auto;
+		}
+		@include breakpoint(1440) {
+			overflow: visible;
+		}
+	}
+}
+
+.paper {
+	&__mobile {
+		@include breakpoint(lg) {
+			display: none;
+		}
+	}
+	&__img {
+		@include breakpoint(md, max) {
+			width: calc(100% +  60px);
+			max-width: calc(100% +  60px);
+			margin-left: -30px;
+		}
+		@include breakpoint(lg, max) {
+			@include breakpoint(md) {
+				max-width: 60%;
+				margin-left: 20%;
+				margin-bottom: 20px;
+			}
+		}
+		@include breakpoint(lg) {
+			width: 110%;
+			max-width: 110%;
+			margin-left: -5%;
+		}
+	}
+	&__intro {
+		@include breakpoint(lg, max) {
+			width: 80%;
+			max-width: 80%;
+			margin-left: 10%;
+			margin-bottom: -15vw;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+			@include breakpoint(md, max) {
+				width: 150%;
+				max-width: 150%;
+				margin-left: -25%;
+				margin-bottom: -25vw;
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+	&__web {
+		@include breakpoint(lg, max) {
+			display: none;
+		}
+	}
+	&__btn-outer {
+		width: 232px;
+		position: absolute;
+		top: 80%;
+		left: calc(50% - 116px);
+
+		@include breakpoint(lg, max) {
+			position: static;
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			margin-bottom: 30px;
+		}
+	}
+	&__btn {
+		width: 232px;
+		transition: transform 0.4s;
+
+		&:hover {
+			transform: scale(1.05) !important;
+		}
+	}
+}
