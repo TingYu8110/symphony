@@ -11,7 +11,7 @@ body {
     width: 100vw;
     height: 100vh;
     transform-origin: center;
-    background: url("../images/events/elements/bg.png?t=20210101v1") center/cover repeat-y;
+    background: url("../images/events/elements/bg.png?t=20210220v1") center/cover repeat-y;
     animation: fade-in 3s forwards; }
   .wrap__inner {
     max-width: 1440px; }
@@ -116,11 +116,11 @@ body {
     .musician .owl-next span {
       display: none; }
   .musician .owl-prev {
-    background: url("../images/events/elements/p3-btn-left.png?t=20210101v1") center/contain no-repeat !important; }
+    background: url("../images/events/elements/p3-btn-left.png?t=20210220v1") center/contain no-repeat !important; }
     .musician .owl-prev:hover {
       animation: left-float 1s infinite; }
   .musician .owl-next {
-    background: url("../images/events/elements/p3-btn-right.png?t=20210101v1") center/contain no-repeat !important; }
+    background: url("../images/events/elements/p3-btn-right.png?t=20210220v1") center/contain no-repeat !important; }
     .musician .owl-next:hover {
       animation: right-float 1s infinite; }
 
@@ -183,6 +183,16 @@ body {
   line-height: 2;
   color: #fff;
   margin-bottom: 30px; }
+  .title .instrument__desc {
+    text-align: right;
+    margin-top: 1rem; }
+    @media (max-width: 767px) {
+      .title .instrument__desc {
+        text-align: left;
+        width: 100vw; } }
+    @media (min-width: 768px) {
+      .title .instrument__desc {
+        margin-left: -50vw; } }
 .instrument__btn {
   display: block;
   width: 232px;
@@ -330,4 +340,4 @@ body {
   width: 232px;
   margin: 0 auto 100px; }
 
-/*# sourceMappingURL=pg_learing.css.map */
+/*# sourceMappingURL=pg_learning.css.map */

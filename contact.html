@@ -18,18 +18,18 @@
 	<!-- ios 不自動偵測電話 -->
 	<meta name="format-detection" content="telephone=no">
 	<!--apple-touch-icon-->
-	<link href="style/images/ios/apple-touch-icon.png?t=20210101v1" rel="apple-touch-icon" />
-	<link href="style/images/ios/apple-touch-icon-57x57.png?t=20210101v1" rel="apple-touch-icon" sizes="57x57" />
-	<link href="style/images/ios/apple-touch-icon-72x72.png?t=20210101v1" rel="apple-touch-icon" sizes="72x72" />
-	<link href="style/images/ios/apple-touch-icon-76x76.png?t=20210101v1" rel="apple-touch-icon" sizes="76x76" />
-	<link href="style/images/ios/apple-touch-icon-114x114.png?t=20210101v1" rel="apple-touch-icon" sizes="114x114" />
-	<link href="style/images/ios/apple-touch-icon-120x120.png?t=20210101v1" rel="apple-touch-icon" sizes="120x120" />
-	<link href="style/images/ios/apple-touch-icon-144x144.png?t=20210101v1" rel="apple-touch-icon" sizes="144x144" />
-	<link href="style/images/ios/apple-touch-icon-152x152.png?t=20210101v1" rel="apple-touch-icon" sizes="152x152" />
-	<link href="style/images/ios/apple-touch-icon-180x180.png?t=20210101v1" rel="apple-touch-icon" sizes="180x180" />
+	<link href="style/images/ios/apple-touch-icon.png?t=20210220v1" rel="apple-touch-icon" />
+	<link href="style/images/ios/apple-touch-icon-57x57.png?t=20210220v1" rel="apple-touch-icon" sizes="57x57" />
+	<link href="style/images/ios/apple-touch-icon-72x72.png?t=20210220v1" rel="apple-touch-icon" sizes="72x72" />
+	<link href="style/images/ios/apple-touch-icon-76x76.png?t=20210220v1" rel="apple-touch-icon" sizes="76x76" />
+	<link href="style/images/ios/apple-touch-icon-114x114.png?t=20210220v1" rel="apple-touch-icon" sizes="114x114" />
+	<link href="style/images/ios/apple-touch-icon-120x120.png?t=20210220v1" rel="apple-touch-icon" sizes="120x120" />
+	<link href="style/images/ios/apple-touch-icon-144x144.png?t=20210220v1" rel="apple-touch-icon" sizes="144x144" />
+	<link href="style/images/ios/apple-touch-icon-152x152.png?t=20210220v1" rel="apple-touch-icon" sizes="152x152" />
+	<link href="style/images/ios/apple-touch-icon-180x180.png?t=20210220v1" rel="apple-touch-icon" sizes="180x180" />
 	<!--android-touch-icon-->
-	<link href="style/images/android/icon-hires.png?t=20210101v1" rel="icon" sizes="192x192" />
-	<link href="style/images/android/icon-normal.png?t=20210101v1" rel="icon" sizes="128x128" />
+	<link href="style/images/android/icon-hires.png?t=20210220v1" rel="icon" sizes="192x192" />
+	<link href="style/images/android/icon-normal.png?t=20210220v1" rel="icon" sizes="128x128" />
 	<!--favicon-->
 	<link rel="shortcut icon" href="style/images/favicon.ico">
 	<!-- css link file start -->
@@ -38,6 +38,9 @@
 	<!-- CSS 模組樣式  -->
 	<link media="screen" rel="stylesheet" href="style/css/pg_contact.css?t=20201231v1" />
 	<!-- CSS page樣式  -->
+	<!-- CSS Link File End -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" />
 	<!-- CSS Link File End -->
 </head>
 <body>
@@ -52,7 +55,7 @@
 	<div class="menu">
 		<div class="menu__inner">
 			<a class="menu__trigger" href="#" title="選單">
-				<img src="style/images/events/elements/menu-icon.png?t=20210101v1" alt="選單">
+				<img src="style/images/events/elements/menu-icon.png?t=20210220v1" alt="選單">
 			</a>
 			<ul class="menu__list">
 				<li class="menu__item">
@@ -62,7 +65,7 @@
 					<a href="learning.html" class="menu__link" title="音樂知識">音樂知識</a>
 				</li>
 				<li class="menu__item">
-					<a href="contact.html" class="menu__link" title="展覽資訊">展覽資訊</a>
+					<a href="contact.html" class="menu__link" title="參訪資訊">參訪資訊</a>
 				</li>
 				<li class="menu__item">
 					<div class="menu__link menu__link--share">
@@ -76,21 +79,36 @@
 	<div class="wrap__inner">
 		<div class="row">
 			<div class="col-12 col-lg-6 offset-lg-3 book">
-				<img class="book__bg" src="style/images/events/elements/p5-book.png?t=20210101v1" alt="書背">
+				<img class="book__bg" src="style/images/events/elements/p5-book.png?t=20210220v1" alt="書背">
 				<div class="book__inner">
 					<div class="book__main">
 						<div class="book__main-inner">
 							<h1 class="book__title">展覽資訊</h1>
+							<div class="carousel">
+								<ul class="owl-carousel ">
+									<li class="musician__item">
+										<img src="style/images/events/elements/place_1.jpg" alt="音樂文化園區-影音館2F">
+									</li>
+									<li class="musician__item">
+										<img src="style/images/events/elements/place_2.jpg" alt="音樂文化園區-影音館2F">
+									</li>
+									<li class="musician__item">
+										<img src="style/images/events/elements/place_3.jpg" alt="音樂文化園區-影音館2F">
+									</li>
+								</ul>
+							</div>
 							<div class="book__desc">國立臺灣交響樂團<br>
-								41341臺中市霧峰區中正路738之2號<br><br>
-								音樂文化園區-影音館2F<br><br>
+								音樂文化園區-影音館2F<br><br class="d-ss-none">
+								41341臺中市霧峰區中正路738之2號<br class="d-ss-none"><br>
 								週二至週日9:00-12:00、13:00-17:00，週一休館</div>
 						</div>
 					</div>
 					<div class="book__footer">
 						<div class="book__footer-label">主辦單位：</div>
 						<div class="book__footer-logo">
-							<img class="book__bg" src="style/images/events/elements/p5-NTSO.png?t=20210101v1" alt="國立台灣交響樂團">
+							<a href="https://www.ntso.gov.tw/" target="_blank" title="國立台灣交響樂團">
+								<img class="book__bg" src="style/images/events/elements/p5-NTSO.png?t=20210220v1" alt="國立台灣交響樂團">
+							</a>
 						</div>
 					</div>
 				</div>
@@ -106,26 +124,32 @@
 <script src="style/js/scroll_animate.js"></script>
 <script src="style/js/anime.min.js"></script>
 <script src="style/js/lodash.min.js"></script>
-	<script src="style/js/main.js"></script><script src="style/js/lodash.min.js"></script>
-	<script src="style/js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous"></script>
+<script src="style/js/main.js"></script>
 <script>
 	$(function(){
+		$('.owl-carousel').owlCarousel({
+			loop:true,
+			margin:10,
+			nav:true,
+			items: 1
+		})
 		anime.timeline({})
-				.add({
-					targets: ".book",
-					opacity: [0, 1],
-					translateY: [-30, 0],
-					duration: 1000,
-					easing: "easeInOutQuad",
-					complete: function(anim) {
-					}
-				});
+		.add({
+			targets: ".book",
+			opacity: [0, 1],
+			translateY: [-30, 0],
+			duration: 1000,
+			easing: "easeInOutQuad",
+			complete: function(anim) {
+			}
+		});
 	})
-			.on("click", ".menu__trigger", function(event){
-				event.preventDefault();
-				var menu  = $(".menu");
-				menu.toggleClass("menu--active")
-			});
+	.on("click", ".menu__trigger", function(event){
+		event.preventDefault();
+		var menu  = $(".menu");
+		menu.toggleClass("menu--active")
+	});
 </script>
 <!-- 程式說明 -上線前請移除 End-->
 </body>

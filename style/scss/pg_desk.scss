@@ -37,7 +37,7 @@ body {
 		}
 
 		.wrap--story & {
-			background-image: url("../images/events/elements/bg.png?t=20210101v1");
+			background-image: url("../images/events/elements/bg.png?t=20210220v1");
 		}
 		.wrap--animation-less & {
 			animation: none;
@@ -76,6 +76,17 @@ body {
 
 	@include breakpoint(lg, max) {
 		top: 182px;
+		width: 450px;
+		max-width: 100%;
+		left: 50%;
+		transform: translateX(-50%);
+		padding-left: 30px;
+		padding-right: 30px;
+
+		@include breakpoint(md) {
+			padding-left: 45px;
+			padding-right: 45px;
+		}
 	}
 
 	&__bg {
@@ -170,7 +181,7 @@ body {
 			left: 45.6%;
 			@include breakpoint(md, max) {
 				width: 26%;
-				top: 30.5%;
+				top: 30.9%;
 				left: 42.8%;
 			}
 		}
@@ -257,6 +268,9 @@ body {
 			margin-left: 10%;
 			margin-bottom: -15vw;
 
+			&:first-child {
+				margin-top: 100px;
+			}
 			&:last-child {
 				margin-bottom: 0;
 			}
@@ -350,7 +364,7 @@ body {
 .back-btn {
 	position: fixed;
 	width: 77px;
-	top: 26.58%;
+	top: 160px;
 	left: 40px;
 	z-index: 3;
 	filter: drop-shadow(0px 2px 2px black);
@@ -360,5 +374,8 @@ body {
 		top: 10%;
 		left: 5%;
 		filter: none;
+	}
+	@include breakpoint(1440) {
+		top: 26.58%;
 	}
 }

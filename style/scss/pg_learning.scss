@@ -20,7 +20,7 @@ body {
 		height: 100vh;
 		transform-origin: center;
 
-		background: url("../images/events/elements/bg.png?t=20210101v1") center / cover repeat-y;
+		background: url("../images/events/elements/bg.png?t=20210220v1") center / cover repeat-y;
 		animation: fade-in 3s forwards;
 	}
 	&__inner {
@@ -151,14 +151,14 @@ body {
 		}
 	}
 	.owl-prev {
-		background: url("../images/events/elements/p3-btn-left.png?t=20210101v1") center / contain no-repeat!important;
+		background: url("../images/events/elements/p3-btn-left.png?t=20210220v1") center / contain no-repeat!important;
 
 		&:hover {
 			animation: left-float 1s infinite;
 		}
 	}
 	.owl-next {
-		background: url("../images/events/elements/p3-btn-right.png?t=20210101v1") center / contain no-repeat!important;
+		background: url("../images/events/elements/p3-btn-right.png?t=20210220v1") center / contain no-repeat!important;
 		&:hover {
 			animation: right-float 1s infinite;
 		}
@@ -247,6 +247,19 @@ body {
 		line-height: 2;
 		color: #fff;
 		margin-bottom: 30px;
+
+		.title & {
+			text-align: right;
+			margin-top: 1rem;
+
+			@include breakpoint(md, max) {
+				text-align: left;
+				width: 100vw;
+			}
+			@include breakpoint(md) {
+				margin-left: -50vw;
+			}
+		}
 	}
 	&__btn {
 		display: block;

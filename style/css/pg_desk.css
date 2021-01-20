@@ -22,7 +22,7 @@
       .wrap__bg {
         position: fixed; } }
     .wrap--story .wrap__bg {
-      background-image: url("../images/events/elements/bg.png?t=20210101v1"); }
+      background-image: url("../images/events/elements/bg.png?t=20210220v1"); }
     .wrap--animation-less .wrap__bg {
       animation: none; }
   .wrap__inner {
@@ -50,7 +50,18 @@
   z-index: 2; }
   @media (max-width: 1023px) {
     .subtitle {
-      top: 182px; } }
+      top: 182px;
+      width: 450px;
+      max-width: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      padding-left: 30px;
+      padding-right: 30px; } }
+  @media (max-width: 1023px) and (min-width: 768px) {
+    .subtitle {
+      padding-left: 45px;
+      padding-right: 45px; } }
+
   .subtitle__bg {
     position: absolute;
     top: 0;
@@ -126,7 +137,7 @@
       @media (max-width: 767px) {
         .sheet__keyword.obstacle {
           width: 26%;
-          top: 30.5%;
+          top: 30.9%;
           left: 42.8%; } }
     .sheet__keyword.abandon {
       width: 12.7%;
@@ -195,6 +206,8 @@
       max-width: 80%;
       margin-left: 10%;
       margin-bottom: -15vw; }
+      .paper__intro:first-child {
+        margin-top: 100px; }
       .paper__intro:last-child {
         margin-bottom: 0; } }
   @media (max-width: 1023px) and (max-width: 767px) {
@@ -264,7 +277,7 @@
 .back-btn {
   position: fixed;
   width: 77px;
-  top: 26.58%;
+  top: 160px;
   left: 40px;
   z-index: 3;
   filter: drop-shadow(0px 2px 2px black); }
@@ -274,5 +287,8 @@
       top: 10%;
       left: 5%;
       filter: none; } }
+  @media (min-width: 1440px) {
+    .back-btn {
+      top: 26.58%; } }
 
 /*# sourceMappingURL=pg_desk.css.map */
