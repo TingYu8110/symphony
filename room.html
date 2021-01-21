@@ -18,18 +18,18 @@
 	<!-- ios 不自動偵測電話 -->
 	<meta name="format-detection" content="telephone=no">
 	<!--apple-touch-icon-->
-	<link href="style/images/ios/apple-touch-icon.png?t=20210101v1" rel="apple-touch-icon" />
-	<link href="style/images/ios/apple-touch-icon-57x57.png?t=20210101v1" rel="apple-touch-icon" sizes="57x57" />
-	<link href="style/images/ios/apple-touch-icon-72x72.png?t=20210101v1" rel="apple-touch-icon" sizes="72x72" />
-	<link href="style/images/ios/apple-touch-icon-76x76.png?t=20210101v1" rel="apple-touch-icon" sizes="76x76" />
-	<link href="style/images/ios/apple-touch-icon-114x114.png?t=20210101v1" rel="apple-touch-icon" sizes="114x114" />
-	<link href="style/images/ios/apple-touch-icon-120x120.png?t=20210101v1" rel="apple-touch-icon" sizes="120x120" />
-	<link href="style/images/ios/apple-touch-icon-144x144.png?t=20210101v1" rel="apple-touch-icon" sizes="144x144" />
-	<link href="style/images/ios/apple-touch-icon-152x152.png?t=20210101v1" rel="apple-touch-icon" sizes="152x152" />
-	<link href="style/images/ios/apple-touch-icon-180x180.png?t=20210101v1" rel="apple-touch-icon" sizes="180x180" />
+	<link href="style/images/ios/apple-touch-icon.png?t=20210220v1" rel="apple-touch-icon" />
+	<link href="style/images/ios/apple-touch-icon-57x57.png?t=20210220v1" rel="apple-touch-icon" sizes="57x57" />
+	<link href="style/images/ios/apple-touch-icon-72x72.png?t=20210220v1" rel="apple-touch-icon" sizes="72x72" />
+	<link href="style/images/ios/apple-touch-icon-76x76.png?t=20210220v1" rel="apple-touch-icon" sizes="76x76" />
+	<link href="style/images/ios/apple-touch-icon-114x114.png?t=20210220v1" rel="apple-touch-icon" sizes="114x114" />
+	<link href="style/images/ios/apple-touch-icon-120x120.png?t=20210220v1" rel="apple-touch-icon" sizes="120x120" />
+	<link href="style/images/ios/apple-touch-icon-144x144.png?t=20210220v1" rel="apple-touch-icon" sizes="144x144" />
+	<link href="style/images/ios/apple-touch-icon-152x152.png?t=20210220v1" rel="apple-touch-icon" sizes="152x152" />
+	<link href="style/images/ios/apple-touch-icon-180x180.png?t=20210220v1" rel="apple-touch-icon" sizes="180x180" />
 	<!--android-touch-icon-->
-	<link href="style/images/android/icon-hires.png?t=20210101v1" rel="icon" sizes="192x192" />
-	<link href="style/images/android/icon-normal.png?t=20210101v1" rel="icon" sizes="128x128" />
+	<link href="style/images/android/icon-hires.png?t=20210220v1" rel="icon" sizes="192x192" />
+	<link href="style/images/android/icon-normal.png?t=20210220v1" rel="icon" sizes="128x128" />
 	<!--favicon-->
 	<link rel="shortcut icon" href="style/images/favicon.ico">
 	<!-- css link file start -->
@@ -56,7 +56,7 @@
 				<div class="menu">
 					<div class="menu__inner">
 						<a class="menu__trigger" href="#" title="選單">
-							<img src="style/images/events/elements/menu-icon.png?t=20210101v1" alt="選單">
+							<img src="style/images/events/elements/menu-icon.png?t=20210220v1" alt="選單">
 						</a>
 						<ul class="menu__list">
 							<li class="menu__item">
@@ -66,7 +66,7 @@
 								<a href="learning.html" class="menu__link" title="音樂知識">音樂知識</a>
 							</li>
 							<li class="menu__item">
-								<a href="contact.html" class="menu__link" title="展覽資訊">展覽資訊</a>
+								<a href="contact.html" class="menu__link" title="參訪資訊">參訪資訊</a>
 							</li>
 							<li class="menu__item">
 								<div class="menu__link menu__link--share">
@@ -80,18 +80,23 @@
 				<!-- 字幕 -->
 				<div class="subtitle">
 					<div class="subtitle__bg"></div>
-					<span class="subtitle__string">這裡是日記裡的書房場景，<br>請試著點擊物件找尋線索，<br class="d-lg-none">看看有沒有辦法離開這裡</span>
-					<span class="subtitle__string next">線索已搜尋完畢，進入下一關卡...</span>
+					<span class="subtitle__string active" data-num="1">這...這是日記裡的場景嗎？我們居然進入日記裡了？！</span>
+					<span class="subtitle__string" data-num="2" style="display: none;">日記上的圖文大多已經毀損了，只看得出這裡應該是 Herz 小時候住的地方，可是...我們該怎麼離開啊？</span>
+					<span class="subtitle__string" data-num="3" style="display: none;">大家分頭找看看書房內有沒有進一步的線索吧！</span>
+					<span class="subtitle__string next">嘿，我發現地上有東西搬移過的痕跡，看來這邊本來有張大書桌才對！我們帶著三張紙條出發，先去尋找缺少的書桌吧！</span>
+					<div class="subtitle__control">
+						<a href="#"  class="subtitle__btn"><span>下一句</span></a>
+					</div>
 				</div>
 
 				<!-- 日記本 -->
 				<div class="diary">
 					<a class="item__link" href="#" data-name="diary" onclick="return false" title="日記本">
 						<picture>
-							<source media="(min-width: 1024px)" srcset="style/images/events/elements/diary.png?t=20210101v1">
-							<img class="item__img diary__img" src="style/images/events/elements/diary-m.png?t=20210101v1" alt="日記本">
+							<source media="(min-width: 1024px)" srcset="style/images/events/elements/diary.png?t=20210220v1">
+							<img class="item__img diary__img" src="style/images/events/elements/diary-m.png?t=20210220v1" alt="日記本">
 						</picture>
-						<img class="item__clue" src="style/images/events/elements/adv_obstacle.png?t=20210101v1" alt="障礙">
+						<img class="item__clue" src="style/images/events/elements/adv_obstacle.png?t=20210220v1" alt="障礙">
 					</a>
 				</div>
 
@@ -99,10 +104,10 @@
 				<div class="envelope">
 					<a class="item__link" data-name="envelope" href="#" onclick="return false" title="信封">
 						<picture>
-							<source media="(min-width: 1024px)" srcset="style/images/events/elements/envelope.png?t=20210101v1">
-							<img class="item__img envelope__img" src="style/images/events/elements/envelope-m.png?t=20210101v1" alt="信封">
+							<source media="(min-width: 1024px)" srcset="style/images/events/elements/envelope.png?t=20210220v1">
+							<img class="item__img envelope__img" src="style/images/events/elements/envelope-m.png?t=20210220v1" alt="信封">
 						</picture>
-						<img class="item__clue" src="style/images/events/elements/adv_deafness.png?t=20210101v1" alt="耳聾">
+						<img class="item__clue" src="style/images/events/elements/adv_deafness.png?t=20210220v1" alt="耳聾">
 					</a>
 				</div>
 
@@ -110,17 +115,17 @@
 				<div class="script">
 					<a class="item__link" data-name="script" href="#" onclick="return false" title="樂譜">
 						<picture>
-							<source media="(min-width: 1024px)" srcset="style/images/events/elements/script.png?t=20210101v1">
-							<img class="item__img script__img" src="style/images/events/elements/script-m.png?t=20210101v1" alt="樂譜">
+							<source media="(min-width: 1024px)" srcset="style/images/events/elements/script.png?t=20210220v1">
+							<img class="item__img script__img" src="style/images/events/elements/script-m.png?t=20210220v1" alt="樂譜">
 						</picture>
-						<img class="item__clue" src="style/images/events/elements/adv_abandon.png?t=20210101v1" alt="拋棄">
+						<img class="item__clue" src="style/images/events/elements/adv_abandon.png?t=20210220v1" alt="拋棄">
 					</a>
 				</div>
 
 				<!-- 下一關按鈕 -->
 				<div class="btn-next">
 					<a href="desk.html" class="btn sheet__btn" title="書桌|遊戲介紹">
-						<img src="style/images/events/elements/btn-next.png?t=20210101v1" alt="書桌|遊戲介紹">
+						<img src="style/images/events/elements/btn-next.png?t=20210220v1" alt="書桌|遊戲介紹">
 					</a>
 				</div>
 			</div>
@@ -149,44 +154,50 @@
 				if (active_item.length > 2) {
 					$(".wrap").addClass("wrap--next");
 					$(".btn-next").css("opacity", 0);
+					$(".subtitle__control").hide();
 				}
 			}
 
 			setTimeout(function() {
-				anime.timeline()
-					.add({
-						targets: ".item__link--active",
-						opacity: [0, 1],
-						delay: anime.stagger(250),
-						duration: 1000,
-						easing: "easeOutQuad",
-						complete: function(anim){
-							$(".item__link").css({transform: ""})
-						}
-					})
-					.add({
-						targets: ".item__link:not(.item__link--active)",
-						opacity: [0, 1],
-						translateY: [-15, 0],
-						delay: anime.stagger(250),
-						duration: 1000,
-						easing: "easeOutQuad",
-						complete: function(anim){
-							$(".item__link").css({transform: ""})
-						}
-					}, "-=1000")
-					.add({
-						targets: ".subtitle",
-						opacity: [0, 1],
-						duration: 1000,
-						easing: "easeOutQuad"
-					}, '-=200')
-					.add({
-						targets: ".btn-next",
-						opacity: [0, 1],
-						duration: 1000,
-						easing: "easeOutQuad",
-					}, '-=1000');
+				anime.timeline({
+					complete: function(){
+						$(".btn-next").css("opacity", 1);
+					}
+				})
+				.add({
+					targets: ".item__link--active",
+					opacity: [0, 1],
+					delay: anime.stagger(250),
+					duration: 1000,
+					easing: "easeOutQuad",
+					complete: function(anim){
+						$(".item__link").css({transform: ""})
+					}
+				})
+				.add({
+					targets: ".item__link:not(.item__link--active)",
+					opacity: [0, 1],
+					translateY: [-15, 0],
+					delay: anime.stagger(250),
+					duration: 1000,
+					easing: "easeOutQuad",
+					complete: function(anim){
+						$(".item__link").css({transform: ""})
+					}
+				}, "-=1000")
+				.add({
+					targets: ".subtitle",
+					opacity: [0, 1],
+					duration: 1000,
+					easing: "easeOutQuad"
+				}, '-=200')
+				.add({
+					targets: ".btn-next",
+					opacity: [0, 1],
+					duration: 1000,
+					easing: "easeOutQuad",
+				}, '-=1000');
+
 			}, 1500);
 		})
 		.on("click", ".item__link", function(event){
@@ -208,10 +219,51 @@
 						arr = active_item ? active_item : [];
 						arr.push(data);
 					localStorage.setItem("activeItem", JSON.stringify(arr));
-							item.addClass("item__link--active").removeClass("item__link--animating");
+					item.addClass("item__link--active").removeClass("item__link--animating");
 					if ($(".item__link--active").length > 2) {
 						$(".wrap").addClass("wrap--next")
+						$(".subtitle__control").hide();
 					}
+				}
+			})
+		})
+		.on("click", ".subtitle__btn", function(event){
+			event.preventDefault();
+			var num = $(".subtitle__string.active").data("num"),
+				control = $(".subtitle__control"),
+				target,
+				theheight = 0;
+			num = parseInt(num) + 1 > 3 ? 3 : parseInt(num) + 1;
+			target = $(".subtitle__string[data-num='" + num + "']");
+			console.log(num, target)
+			anime({
+				targets: ".subtitle__string.active",
+				opacity: [1, 0],
+				height: 0,
+				duration: 400,
+				easing: "easeOutQuad",
+				begin: function(){
+					if (num === 3) {
+						control.hide();
+					}
+				},
+				complete: function(anim){
+					$(anim.animatables[0].target).hide().removeClass("active");
+					target.show();
+					theheight = target[0].clientHeight;
+					anime({
+						targets: target[0],
+						opacity: [0, 1],
+						height: [0, theheight],
+						duration: 400,
+						easing: "easeOutQuad",
+						begin: function(){
+							target.show();
+						},
+						complete: function(anim){
+							target.addClass("active");
+						}
+					})
 				}
 			})
 		});

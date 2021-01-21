@@ -623,6 +623,11 @@ body {
     transform: rotate(15deg); }
   100% {
     transform: rotate(0); } }
+@keyframes floating {
+  0% {
+    transform: translateY(-6px); }
+  100% {
+    transform: translateY(0); } }
 @keyframes float {
   0% {
     transform: translateY(10px); }
