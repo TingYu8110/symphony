@@ -136,6 +136,7 @@ body {
 		transform: translateY(-50%);
 		display: flex;
 		justify-content: space-between;
+		pointer-events: none;
 
 		@include breakpoint(lg, max) {
 			width: 100%;
@@ -146,6 +147,7 @@ body {
 	.owl-next {
 		width: 80px;
 		height: 80px;
+		pointer-events: auto;
 		span {
 			display: none;
 		}
