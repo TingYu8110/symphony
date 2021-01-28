@@ -118,8 +118,17 @@ body {
 	}
 
 	&__link {
+		display: block;
 		width: 220px;
 		transition: all .4s;
+		margin-top: 40px;
+
+		@include breakpoint(md) {
+			margin-top: 45px;
+		}
+		@include breakpoint(lg) {
+			margin-top: 50px;
+		}
 	}
 
 	&__img {
@@ -127,6 +136,17 @@ body {
 
 		.logo__link:hover & {
 			transform: scale(1.01);
+		}
+		&--ntso {
+			width: 175px;
+			position: absolute;
+			top: 0;
+			left: 50%;
+			transform: translateX(-50%);
+
+			@include breakpoint(md) {
+				width: 200px;
+			}
 		}
 	}
 }

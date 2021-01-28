@@ -13514,14 +13514,38 @@ body.preload * {
   }
 }
 .logo__link {
+  display: block;
   width: 220px;
   transition: all 0.4s;
+  margin-top: 40px;
+}
+@media (min-width: 768px) {
+  .logo__link {
+    margin-top: 45px;
+  }
+}
+@media (min-width: 1024px) {
+  .logo__link {
+    margin-top: 50px;
+  }
 }
 .logo__img {
   transition: all 0.4s;
 }
 .logo__link:hover .logo__img {
   transform: scale(1.01);
+}
+.logo__img--ntso {
+  width: 175px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@media (min-width: 768px) {
+  .logo__img--ntso {
+    width: 200px;
+  }
 }
 
 .menu {

@@ -205,3 +205,16 @@ body {
 		display: none;
 	}
 }
+
+.logo {
+	@include breakpoint(lg, max) {
+		left: calc(50% - 90px);
+
+		&__img {
+			width: 180px;
+		}
+	}
+	&__link {
+		width: auto;
+	}
+}

@@ -56,7 +56,7 @@ body {
 		@include breakpoint(lg, max) {
 			.wrap--story & {
 				flex-wrap: wrap;
-				padding-top: 178px;
+				padding-top: 330px;
 				height: auto;
 			}
 		}
@@ -84,6 +84,7 @@ body {
 		padding-right: 30px;
 
 		@include breakpoint(md) {
+			top: 330px;
 			padding-left: 45px;
 			padding-right: 45px;
 		}
@@ -139,7 +140,10 @@ body {
 	@include breakpoint(lg, max) {
 		position: relative;
 		width: 100%;
-		margin-top: 150px;
+
+		@include breakpoint(md) {
+			margin-top: 150px;
+		}
 	}
 	.wrap.animating & {
 		pointer-events: none;
@@ -236,6 +240,13 @@ body {
 .paper {
 	position: relative;
 	z-index: 1;
+
+	@include breakpoint(1919, max) {
+		@include breakpoint(lg) {
+			max-width: 80%;
+			margin: 0 auto;
+		}
+	}
 
 	&__mobile {
 		@include breakpoint(lg) {
@@ -375,7 +386,37 @@ body {
 		left: 5%;
 		filter: none;
 	}
+	@include breakpoint(lg) {
+		top: 220px;
+	}
 	@include breakpoint(1440) {
 		top: 26.58%;
+	}
+}
+
+.logo {
+	@include breakpoint(md, max) {
+		left: calc(50% - 90px);
+
+		&__img {
+			width: 180px;
+		}
+	}
+	@include breakpoint(lg, max) {
+		@include breakpoint(md) {
+			left: calc(50% - 170px);
+
+			&__img {
+				width: 340px;
+			}
+			&__link {
+				@include breakpoint(lg, max) {
+					margin-top: 75px;
+				}
+			}
+		}
+	}
+	&__link {
+		width: auto;
 	}
 }
